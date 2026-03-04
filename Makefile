@@ -2,13 +2,13 @@ NAME = push_swap
 LIBFT_DIR = ./42-Libft
 LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./includes -I$(LIBFT_DIR)
+CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I./includes
 
-SRCS = basic_functions.c \
-       check_arguments.c \
-       swap_functions.c \
-       helper_functions.c
-
+SRCS_DIR = ./srcs
+SRCS = $(SRCS_DIR)/basic_functions.c \
+       $(SRCS_DIR)/check_arguments.c \
+       $(SRCS_DIR)/swap_functions.c \
+       $(SRCS_DIR)/helper_functions.c \
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
