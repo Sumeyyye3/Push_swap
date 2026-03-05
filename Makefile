@@ -5,10 +5,13 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I./includes
 
 SRCS_DIR = ./srcs
-SRCS = $(SRCS_DIR)/basic_functions.c \
+SRCS = main.c \
+       $(SRCS_DIR)/basic_functions.c \
        $(SRCS_DIR)/check_arguments.c \
        $(SRCS_DIR)/swap_functions.c \
        $(SRCS_DIR)/helper_functions.c \
+	   $(SRCS_DIR)/simple_algorithms.c
+
 OBJS = $(SRCS:.c=.o)
 
 all: $(LIBFT) $(NAME)
