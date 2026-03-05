@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:56:17 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/05 00:16:01 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/05 22:11:05 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,13 @@ int		ft_isnumber(char *numbers);
 int		ft_includes(long argument, char **new_av, int i);
 int		ft_controls(char **new_av, int flag);
 int		check_arguments(int ac, char **av);
-
-void	ft_free(char **new_av);
 int		get_min_value(t_stack *stack);
 int		get_max_value(t_stack *stack);
 int		get_position(t_stack *stack, int value);
+int		ft_is_sorted(t_stack *stack);
+int		ft_stack_size(t_stack *stack);
+
+void	ft_free(char **new_av);
+void	ft_simple_sort(t_stack **first, t_stack **second);
 
 #endif
