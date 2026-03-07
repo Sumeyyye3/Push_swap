@@ -1,6 +1,6 @@
 #include "includes/push_swap.h"
 
-void    ft_top_stack(t_stack stack_a, int max_index)
+void    ft_top_stack(t_stack *stack_a, int max_index)
 {
     int size ;
 
@@ -11,12 +11,13 @@ void    ft_top_stack(t_stack stack_a, int max_index)
     else
         reverse_rotate_a(&stack_a);
 }
+
 t_stack *heap_sort(t_stack *stack_a)
 {
     int max_value;
     int max_index;
     int flag;
-    t_stack stack_b;
+    t_stack *stack_b;
 
     while(stack_a)
     {
