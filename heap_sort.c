@@ -22,7 +22,7 @@ t_stack *heap_sort(t_stack *stack_a)
     while(stack_a)
     {
         max_value = get_max_value(stack_a);
-        max_index = get_position(stack_a);
+        max_index = get_position(stack_a, stack_a -> value);
         ft_top_stack(&stack_a, max_index);
         push_b(&stack_a, &stack_b);
     }
