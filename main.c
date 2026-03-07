@@ -1,4 +1,5 @@
 #include "includes/push_swap.h"
+#include <stdlib.h>
 
 int	main(int ac, char **av)
 {

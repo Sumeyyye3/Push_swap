@@ -5,8 +5,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I./includes
 
 SRCS_DIR = ./srcs
-SRCS = main.c \
-       $(SRCS_DIR)/basic_functions.c \
+SRCS = $(SRCS_DIR)/basic_functions.c \
        $(SRCS_DIR)/check_arguments.c \
        $(SRCS_DIR)/swap_functions.c \
        $(SRCS_DIR)/helper_functions.c \
@@ -15,7 +14,7 @@ SRCS = main.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFT) $(NAME)
+all: $(LIBFT) $(SRCS) $(NAME)
 
 $(LIBFT):
 	@make -C $(LIBFT_DIR)

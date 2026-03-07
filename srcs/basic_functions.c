@@ -6,12 +6,12 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 18:57:49 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/05 21:38:31 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/07 13:58:34 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include </unistd.h>
+#include <unistd.h>
 
 void    push_a(t_stack **a, t_stack **b)
 {
