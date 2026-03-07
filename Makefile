@@ -10,7 +10,8 @@ SRCS = main.c \
        $(SRCS_DIR)/check_arguments.c \
        $(SRCS_DIR)/swap_functions.c \
        $(SRCS_DIR)/helper_functions.c \
-	   $(SRCS_DIR)/simple_algorithms.c
+	   $(SRCS_DIR)/simple_algorithms.c \
+	   heap_sort.c
 
 OBJS = $(SRCS:.c=.o)
 
