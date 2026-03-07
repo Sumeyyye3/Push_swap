@@ -11,42 +11,41 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include </unistd.h>
 
-int    push_a(t_stack **a, t_stack **b)
+void    push_a(t_stack **a, t_stack **b)
 {
     t_stack *temp;
 
     if (!b || !*b)
-        return (-1);
+        return ;
     temp = *b;
     *b = (*b)->next;
     temp->next = *a;
     *a = temp;
     write(1, "pa\n", 3);
-    return (0);
 }
 
-int    push_b(t_stack **a, t_stack **b)
+void    push_b(t_stack **a, t_stack **b)
 {
     t_stack *temp;
 
     if (!a || !*a)
-        return (-1);
+        return ;
     temp = *a;
     *a = (*a)->next;
     temp->next = *b;
     *b = temp;
     write(1, "pb\n", 3);
-    return (0);
 }
 
-int    rotate_a(t_stack **a)
+void    rotate_a(t_stack **a)
 {
     t_stack *temp;
     t_stack *last;
 
     if (!a || !*a || !(*a)->next)
-        return (-1);
+        return ;
     
     last = ft_lstlast(*a);
     temp = *a;
@@ -54,16 +53,15 @@ int    rotate_a(t_stack **a)
     temp->next = NULL;
     last->next = temp;
     write(1, "ra\n", 3);
-    return (0);
 }
 
-int    rotate_b(t_stack **b)
+void    rotate_b(t_stack **b)
 {
     t_stack *temp;
     t_stack *last;
 
     if (!b || !*b || !(*b)->next)
-        return (-1);
+        return ;
     
     last = ft_lstlast(*b);
     temp = *b;
@@ -71,16 +69,15 @@ int    rotate_b(t_stack **b)
     temp->next = NULL;
     last->next = temp;
     write(1, "rb\n", 3);
-    return (0);
 }
 
-int    reverse_rotate_a(t_stack **a)
+void    reverse_rotate_a(t_stack **a)
 {
     t_stack *prev;
     t_stack *last;
 
     if (!a || !*a || !(*a)->next)
-        return (-1);
+        return ;
     
     prev = NULL;
     last = *a;
@@ -94,16 +91,15 @@ int    reverse_rotate_a(t_stack **a)
     last->next = *a;
     *a = last;
     write(1, "rra\n", 4);
-    return (0);
 }
 
-int    reverse_rotate_b(t_stack **b)
+void   reverse_rotate_b(t_stack **b)
 {
     t_stack *prev;
     t_stack *last;
 
     if (!b || !*b || !(*b)->next)
-        return (-1);
+        return ;
     
     prev = NULL;
     last = *b;
@@ -117,5 +113,4 @@ int    reverse_rotate_b(t_stack **b)
     last->next = *b;
     *b = last;
     write(1, "rrb\n", 4);
-    return (0);
 }
