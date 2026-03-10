@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <unistd.h>
 
 void	ft_free(char **new_av)
 {
@@ -43,7 +44,9 @@ int	ft_isnumber(char *numbers)
 		i++;
 	}
     if (numbers[i] != '\0')
+    {
         return (0);
+    }
 	return (1);
 }
 

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
 // stack boyutunu hesaplar.
 int	ft_stack_size(t_stack *stack)
@@ -26,11 +26,10 @@ int	ft_stack_size(t_stack *stack)
 	return (size);
 }
 
-// stack sıralanmış bir şekilde gelip gelmediğini kontrol eder
+// // stack sıralanmış bir şekilde gelip gelmediğini kontrol eder
 int	ft_is_sorted(t_stack *stack)
 {
 	t_stack	*temp;
-
 	temp = stack;
 	while (temp && temp -> next)
 	{
@@ -69,5 +68,5 @@ void	ft_simple_sort(t_stack **first, t_stack **second)
 		push_b(first, second);
 	}
 	while (*second)
-		push_b(first, second);
+		push_a(first, second);
 }
