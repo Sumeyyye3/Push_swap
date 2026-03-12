@@ -1,36 +1,59 @@
 NAME = push_swap
-LIBFT_DIR = ./42-Libft
-LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I$(LIBFT_DIR) -I./includes
+CFLAGS = -Wall -Wextra -Werror -I.
 
-SRCS_DIR = ./srcs
-SRCS = $(SRCS_DIR)/basic_functions.c \
-       $(SRCS_DIR)/check_arguments.c \
-       $(SRCS_DIR)/swap_functions.c \
-       $(SRCS_DIR)/helper_functions.c \
-	   $(SRCS_DIR)/simple_algorithms.c \
-	   heap_sort.c
+MAIN_DIR = ./srcs/main
+CHECK_DIR = ./srcs/check
+STACK_DIR = ./srcs/stack
+OPS_DIR = ./srcs/operations
+UTILS_DIR = ./srcs/utils
+SORT_SIMPLE_DIR = ./srcs/sort_simple
+SORT_BLOCK_DIR = ./srcs/sort_block
+SORT_HEAP_DIR = ./srcs/sort_heap
+SORT_ADAPTIVE_DIR = ./srcs/sort_adaptive
+BENCH_DIR = ./srcs/bench
+
+SRCS = $(MAIN_DIR)/ft_main.c \
+       $(MAIN_DIR)/ft_main_utils.c \
+	   $(MAIN_DIR)/ft_main_utils2.c \
+       $(CHECK_DIR)/ft_check_args.c \
+       $(CHECK_DIR)/ft_check_utils.c \
+       $(STACK_DIR)/ft_stack_new.c \
+       $(STACK_DIR)/ft_stack_values.c \
+       $(STACK_DIR)/ft_stack_clear.c \
+       $(OPS_DIR)/ft_op_push.c \
+       $(OPS_DIR)/ft_op_rotate.c \
+       $(OPS_DIR)/ft_op_swap.c \
+       $(OPS_DIR)/ft_op_combined.c \
+       $(UTILS_DIR)/ft_utils_split_atol.c \
+       $(UTILS_DIR)/ft_utils_str.c \
+       $(UTILS_DIR)/ft_utils_free.c \
+       $(UTILS_DIR)/ft_utils_put.c \
+       $(SORT_SIMPLE_DIR)/ft_bubble_sort.c \
+       $(SORT_SIMPLE_DIR)/ft_sort_three.c \
+       $(SORT_SIMPLE_DIR)/ft_sort_utils.c \
+       $(SORT_BLOCK_DIR)/ft_block_sort.c \
+       $(SORT_BLOCK_DIR)/ft_block_utils.c \
+       $(SORT_HEAP_DIR)/ft_heap_sort.c \
+       $(SORT_ADAPTIVE_DIR)/ft_adaptive_sort.c \
+       $(SORT_ADAPTIVE_DIR)/ft_adaptive_utils.c \
+       $(BENCH_DIR)/ft_bench_init.c \
+       $(BENCH_DIR)/ft_bench_utils.c
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBFT) $(SRCS) $(NAME)
-
-$(LIBFT):
-	@make -C $(LIBFT_DIR)
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(LIBFT)
+	ar rcs $(NAME) $(OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@make clean -C $(LIBFT_DIR)
 	rm -f $(OBJS)
 
 fclean: clean
-	@make fclean -C $(LIBFT_DIR)
 	rm -f $(NAME)
 
 re: fclean all
