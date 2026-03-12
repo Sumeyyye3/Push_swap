@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 01:05:46 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/13 01:38:51 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ typedef struct s_bench
 	int		ops_rrr;
 }	t_bench;
 
-/* main/ */
-int	main(int ac, char **av);
+/* main */
+int		main(int ac, char **av);
 t_stack	*ft_create_node(long value);
 void	ft_add_node(t_stack **stack, t_stack *new);
 void	ft_assign_indices(t_stack *stack);
@@ -53,13 +53,13 @@ t_stack	*ft_init_stack(int ac, char **av, int *flag);
 int		ft_count_numbers(int ac, char **av);
 char	**ft_extract_numbers(int ac, char **av, int *cnt);
 
-/* check/ */
+/* check */
 int		ft_check_arguments(int ac, char **av);
 int		ft_controls(char **av, int flag);
 int		ft_isnumber(char *str);
 int		ft_includes(long num, char **av, int index);
 
-/* stack/ */
+/* stack */
 t_stack	*ft_lstnew(int value);
 t_stack	*ft_lstlast(t_stack *lst);
 int		ft_lstsize(t_stack *lst);
@@ -73,7 +73,7 @@ int		ft_get_max_pos(t_stack *stack);
 void	ft_lstclear(t_stack **lst);
 void	ft_free_stack(t_stack **stack);
 
-/* operations/ */
+/* operations */
 void	ft_pa(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_pb(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_ra(t_stack **a, t_bench *bench);
@@ -87,7 +87,7 @@ void	ft_rrr(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_ss(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_print_op(char *op, t_bench *bench);
 
-/* utils/ */
+/* utils */
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 long	ft_atol(const char *str);
@@ -98,30 +98,30 @@ void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-/* sort_simple/ */
+/* sort_simple */
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_bubble_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_sort_two(t_stack **a, t_bench *bench);
 void	ft_sort_three(t_stack **a, t_bench *bench);
 void	ft_bring_min_to_top(t_stack **a, int pos, t_bench *bench);
 
-/* sort_block/ */
+/* sort_block */
 void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench);
 int		ft_sqrt(int nb);
 int		ft_find_in_chunk(t_stack *stack, int min, int max);
 void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
 
-/* sort_heap/ */
+/* sort_heap */
 void	ft_heap_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_bring_to_top(t_stack **stack, int pos, t_bench *bench, char name);
 
-/* sort_adaptive/ */
+/* sort_adaptive */
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_dispatch_sort(t_stack **a, t_stack **b, char *strat, t_bench *bch);
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch);
 
-/* bench/ */
+/* bench */
 void	ft_init_bench(t_bench *bench);
 void	ft_print_bench(t_bench *bench);
 double	ft_compute_disorder(t_stack *stack);
