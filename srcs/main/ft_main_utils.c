@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 01:02:40 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/14 05:48:33 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,27 +40,27 @@ void	ft_add_node(t_stack **stack, t_stack *new)
 	}
 }
 
-void	ft_assign_indices(t_stack *stack)
-{
-	t_stack	*tmp;
-	t_stack	*tmp2;
-	int		idx;
+//void	ft_assign_indices(t_stack *stack)
+//{
+//	t_stack	*tmp;
+//	t_stack	*tmp2;
+//	int		idx;
 
-	tmp = stack;
-	while (tmp)
-	{
-		idx = 0;
-		tmp2 = stack;
-		while (tmp2)
-		{
-			if (tmp->value > tmp2->value)
-				idx++;
-			tmp2 = tmp2->next;
-		}
-		tmp->index = idx;
-		tmp = tmp->next;
-	}
-}
+//	tmp = stack;
+//	while (tmp)
+//	{
+//		idx = 0;
+//		tmp2 = stack;
+//		while (tmp2)
+//		{
+//			if (tmp->value > tmp2->value)
+//				idx++;
+//			tmp2 = tmp2->next;
+//		}
+//		tmp->index = idx;
+//		tmp = tmp->next;
+//	}
+//}
 
 static t_stack	*ft_init_stack_args(char **args, int cnt)
 {
@@ -77,28 +77,17 @@ static t_stack	*ft_init_stack_args(char **args, int cnt)
 	return (stack);
 }
 
-t_stack	*ft_init_stack(int ac, char **av, int *flag)
+t_stack	*ft_init_stack(char **nums)
 {
 	t_stack	*stack;
 	char	**args;
 	int		cnt;
 
 	stack = NULL;
-	*flag = 0;
-	if (ac == 2)
-	{
-		args = ft_split(av[1], ' ');
-		if (!args || !args[0])
-			return (NULL);
-		*flag = 1;
-	}
-	else
-		args = av + 1;
+	args = nums;
 	cnt = 0;
 	while (args[cnt])
 		cnt++;
 	stack = ft_init_stack_args(args, cnt);
-	if (*flag == 1)
-		ft_free_split(args);
 	return (stack);
 }

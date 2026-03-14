@@ -48,21 +48,22 @@ typedef struct s_bench
 int		main(int ac, char **av);
 t_stack	*ft_create_node(long value);
 void	ft_add_node(t_stack **stack, t_stack *new);
-void	ft_assign_indices(t_stack *stack);
-t_stack	*ft_init_stack(int ac, char **av, int *flag);
+//void	ft_assign_indices(t_stack *stack);
+void	ft_check_duplicate(char **nums, char *num,int *flag);
+t_stack	*ft_init_stack(char **nums);
 int		ft_count_numbers(int ac, char **av);
 char	**ft_extract_numbers(int ac, char **av, int *cnt);
 
 /* check */
-int		ft_check_arguments(int ac, char **av);
-int		ft_controls(char **av, int flag);
+void		ft_check_arguments(int ac,char **av);
+//int		ft_controls(char **av, int flag);
 int		ft_isnumber(char *str);
 int		ft_includes(long num, char **av, int index);
 
 /* stack */
-t_stack	*ft_lstnew(int value);
-t_stack	*ft_lstlast(t_stack *lst);
-int		ft_lstsize(t_stack *lst);
+//t_stack	*ft_lstnew(int value);
+//t_stack	*ft_lstlast(t_stack *lst);
+//int		ft_lstsize(t_stack *lst);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *stack);
 int		ft_get_min(t_stack *stack);

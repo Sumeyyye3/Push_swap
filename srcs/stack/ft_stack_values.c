@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_stack_values.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:25:07 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/14 04:44:58 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,19 @@ int	ft_get_min_pos(t_stack *stack)
 	int	min_pos;
 
 	if (!stack)
-		return (-1);
+		exit (1);
 	min = stack->value;
 	min_pos = 0;
 	pos = 0;
 	while (stack)
 	{
+		stack = stack->next;
 		if (stack->value < min)
 		{
 			min = stack->value;
 			min_pos = pos;
 		}
 		pos++;
-		stack = stack->next;
 	}
 	return (min_pos);
 }
