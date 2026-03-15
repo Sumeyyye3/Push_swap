@@ -6,39 +6,72 @@
 /*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 07:03:40 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/15 06:09:44 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
+#include <stdio.h>
 
 static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 {
-	*cnt = ft_count_numbers(ac, av);
+	long	arr_nums;
+	int		i;
+
+	*cnt = ft_count_numbers(ac, av); // 2
 	*nums = ft_extract_numbers(ac, av, cnt);
 	if (!*nums)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		exit(1);
+	}
+	i = 0;
+	while (nums[i])
+	{
+		arr_nums = ft_atol(**nums);
+		if (arr_nums < INT_MIN || arr_nums > INT_MAX)
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		i++;
 	}
 }
 
 static void	ft_initialize(t_stack **a, t_bench *bench, int ac, char **av)
 {
-	char	**nums;  // av ' nin kopyası olacak
-	int		cnt;
-
-	ft_process_args(ac, av, &nums, &cnt);
+	char **nums; // av ' nin kopyası olacak
+	int cnt;     // 2
+	ft_process_args(ac, av, &nums, &cnt); // nums = "2"  "1"
 	*a = ft_init_stack(nums);
 	if (!*a)
 	{
 		ft_putstr_fd("Error\n", 2);
-		exit (1);
+		exit(1);
 	}
-	//ft_assign_indices(*a);
+	// ft_assign_indices(*a);
 	ft_init_bench(bench);
 }
 
+static char	*ft_find_strategy(char **av)
+{
+	int	i;
+
+	i = 0;
+	while (av[i])
+	{
+		if (ft_strcmp(av[i], "--simple") == 0)
+		{
+			return ("simple");
+		}
+		else if (ft_strcmp(av[i], "--medium") == 0)
+			return ("medium");
+		else if (ft_strcmp(av[i], "--complex") == 0)
+			return ("complex");
+		i++;
+	}
+	return ("none");
+}
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -48,13 +81,17 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	a = NULL;
-	ft_check_arguments(ac , av);
-	ft_initialize(&a, &bench, ac, av);  // av kopyası numbs oluşturur
+	strategy = NULL;
+	printf("once");
+	ft_check_arguments(ac, av, strategy);
+	printf("once");
+	ft_initialize(&a, &bench, ac, av);
+		// av kopyası numbs oluşturur ve sayı zincşrşnş oluşturur
 	if (bench.mode)
 		bench.disorder = ft_compute_disorder(a);
-	strategy = NULL;
+	
 	b = NULL;
+	strategy = ft_find_strategy(av);
 	ft_sort_stacks(&a, &b, strategy, &bench);
 	if (bench.mode)
 		ft_print_bench(&bench);

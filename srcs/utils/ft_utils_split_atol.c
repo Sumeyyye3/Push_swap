@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_utils_split_atol.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 00:33:19 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/14 22:28:42 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
-long	ft_atol(const char *str)
+long	ft_atol(char *str)
 {
 	int		i;
 	long	num;

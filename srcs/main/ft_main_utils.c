@@ -6,12 +6,12 @@
 /*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 05:48:33 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/15 02:19:07 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
+#include<stdio.h>
 t_stack	*ft_create_node(long value)
 {
 	t_stack	*new;

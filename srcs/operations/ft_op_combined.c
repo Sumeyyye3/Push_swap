@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_op_combined.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 01:03:28 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/15 02:12:38 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,16 @@ void	ft_ss(t_stack **a, t_stack **b, t_bench *bench)
 	}
 	if (swapped)
 		ft_print_op("ss", bench);
+}
+
+int	ft_strcmp(const char *s1, const char *s2)
+{
+	int	i;
+
+	i = 0;
+	while (s1[i] && s1[i] == s2[i])
+		i++;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }
 
 static void	ft_count_op_part(char *op, t_bench *bench)

@@ -49,13 +49,13 @@ int		main(int ac, char **av);
 t_stack	*ft_create_node(long value);
 void	ft_add_node(t_stack **stack, t_stack *new);
 //void	ft_assign_indices(t_stack *stack);
-void	ft_check_duplicate(char **nums, char *num,int *flag);
+int	ft_check_duplicate(char **nums);
 t_stack	*ft_init_stack(char **nums);
 int		ft_count_numbers(int ac, char **av);
 char	**ft_extract_numbers(int ac, char **av, int *cnt);
 
 /* check */
-void		ft_check_arguments(int ac,char **av);
+void		ft_check_arguments(int ac,char **av, char *strategy);
 //int		ft_controls(char **av, int flag);
 int		ft_isnumber(char *str);
 int		ft_includes(long num, char **av, int index);
@@ -91,7 +91,7 @@ void	ft_print_op(char *op, t_bench *bench);
 /* utils */
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-long	ft_atol(const char *str);
+long	ft_atol(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_free(char **new_av);
 void	ft_free_split(char **split);

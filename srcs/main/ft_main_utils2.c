@@ -6,7 +6,7 @@
 /*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 03:41:50 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/15 00:30:46 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_count_numbers(int ac, char **av)
 {
 	char	**args;
 	int		cnt;
-	int		i;
+
 
 	if (ac == 2)
 	{
@@ -29,19 +29,11 @@ int	ft_count_numbers(int ac, char **av)
 		ft_free_split(args);
 		return (cnt);
 	}
-	cnt = 0;
-	i = 1;
-	while (i < ac)
-	{
-		if (av[i][0] != '-')
-			cnt++;
-		i++;
-	}
-	return (cnt);
+	return (ac - 1);
 }
 
 static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
-{
+{                                  // 3     ./a.out 2 1      2
 	char	**nums;
 	int		i;
 	int		j;

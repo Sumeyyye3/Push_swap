@@ -6,12 +6,12 @@
 /*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 02:07:53 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/15 05:44:40 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
-
+#include<stdio.h>
 static void	ft_bubble_pass(t_stack **a, int size, t_bench *bench)
 {
 	int	i;
@@ -21,7 +21,7 @@ static void	ft_bubble_pass(t_stack **a, int size, t_bench *bench)
 	swapped = 0;
 	while (i < size - 1)
 	{
-		if ((*a)->value > (*a)->next->value)
+		if ((*a)->next && (*a)->value > (*a)->next->value)
 		{
 			ft_sa(a, bench);
 			swapped = 1;
@@ -60,6 +60,7 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	min_pos;
 	int	size;
+	int moves;
 
 	while (*a)
 	{
@@ -72,7 +73,8 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 		}
 		else
 		{
-			while (min_pos++ < size)
+			moves = size - min_pos;
+			while (moves-- > 0)
 				ft_rra(a, bench);
 		}
 		ft_pb(a, b, bench);
