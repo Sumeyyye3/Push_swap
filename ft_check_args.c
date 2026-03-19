@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 06:13:25 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:19 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include <stddef.h>
 #include <stdio.h>
 #include <unistd.h>

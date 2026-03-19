@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_heap_sort.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 04:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 05:56:52 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:25 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include<stdio.h>
 static void	ft_rotate_up(t_stack **stack, int pos, t_bench *bench, char name)
 {

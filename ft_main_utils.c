@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 02:19:07 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:28 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include<stdio.h>
 t_stack	*ft_create_node(long value)
 {

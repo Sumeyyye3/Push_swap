@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_three.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 07:10:23 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:48 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include<unistd.h>
 static void	ft_case_one(t_stack **a, t_bench *bench)
 {

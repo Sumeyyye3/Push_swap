@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main_utils2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 00:30:46 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:30 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 int	ft_count_numbers(int ac, char **av)
 {

@@ -6,11 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 00:45:40 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:00 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 static int	*ft_stack_to_array(t_stack *stack, int size)
 {

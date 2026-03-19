@@ -1,41 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
+/*   ft_op_swap.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:25:30 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:45 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_stack **lst)
+static void	ft_swap(t_stack **stack)
 {
-	t_stack	*tmp;
+	t_stack	*first;
+	t_stack	*second;
 
-	if (!lst || !*lst)
+	if (!stack || !*stack || !(*stack)->next)
 		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
+	first = *stack;
+	second = first->next;
+	first->next = second->next;
+	second->next = first;
+	*stack = second;
 }
 
-void	ft_free_stack(t_stack **stack)
+void	ft_sa(t_stack **a, t_bench *bench)
 {
-	t_stack	*tmp;
-
-	if (!stack || !*stack)
+	if (!a || !*a || !(*a)->next)
 		return ;
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
-	}
+	ft_swap(a);
+	ft_print_op("sa", bench);
+}
+
+void	ft_sb(t_stack **b, t_bench *bench)
+{
+	if (!b || !*b || !(*b)->next)
+		return ;
+	ft_swap(b);
+	ft_print_op("sb", bench);
 }

@@ -1,43 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_op_swap.c                                       :+:      :+:    :+:   */
+/*   ft_utils_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:28:26 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:59 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-static void	ft_swap(t_stack **stack)
+void	ft_free(char **new_av)
 {
-	t_stack	*first;
-	t_stack	*second;
+	int	j;
 
-	if (!stack || !*stack || !(*stack)->next)
+	if (!new_av)
 		return ;
-	first = *stack;
-	second = first->next;
-	first->next = second->next;
-	second->next = first;
-	*stack = second;
+	j = 0;
+	while (new_av[j])
+	{
+		free(new_av[j]);
+		j++;
+	}
+	free(new_av);
 }
 
-void	ft_sa(t_stack **a, t_bench *bench)
+void	ft_free_split(char **split)
 {
-	if (!a || !*a || !(*a)->next)
-		return ;
-	ft_swap(a);
-	ft_print_op("sa", bench);
-}
+	int	i;
 
-void	ft_sb(t_stack **b, t_bench *bench)
-{
-	if (!b || !*b || !(*b)->next)
+	if (!split)
 		return ;
-	ft_swap(b);
-	ft_print_op("sb", bench);
+	i = 0;
+	while (split[i])
+	{
+		free(split[i]);
+		i++;
+	}
+	free(split);
 }

@@ -6,11 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 04:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:05:32 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:14:57 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 static void	ft_dispatch_simple(t_stack **a, t_stack **b, t_bench *bench)
 {

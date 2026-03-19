@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bubble_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 05:44:40 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:13 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
-#include<stdio.h>
+#include "push_swap.h"
+
 static void	ft_bubble_pass(t_stack **a, int size, t_bench *bench)
 {
 	int	i;

@@ -6,11 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:28:08 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:43 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 void	ft_rra(t_stack **a, t_bench *bench)
 {

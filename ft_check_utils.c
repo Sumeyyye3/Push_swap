@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/14 05:44:42 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:22 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 //static int	ft_check_number(char *str, long arg, char **av, int flag)
 //{

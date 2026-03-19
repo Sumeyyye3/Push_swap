@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_op_combined.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
+/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/15 02:12:38 by sumdogan         ###   ########.fr       */
+/*   Updated: 2026/03/19 15:15:38 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 void	ft_rr(t_stack **a, t_stack **b, t_bench *bench)
 {

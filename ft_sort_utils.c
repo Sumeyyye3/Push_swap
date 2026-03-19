@@ -1,39 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_op_push.c                                       :+:      :+:    :+:   */
+/*   ft_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:27:52 by mozay            ###   ########.fr       */
+/*   Created: 2026/03/13 00:31:12 by mozay             #+#    #+#             */
+/*   Updated: 2026/03/19 15:15:50 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-void	ft_pa(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_sort_two(t_stack **a, t_bench *bench)
 {
-	t_stack	*tmp;
-
-	if (!b || !*b)
-		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	tmp->next = *a;
-	*a = tmp;
-	ft_print_op("pa", bench);
+	if ((*a)->value > (*a)->next->value)
+		ft_sa(a, bench);
 }
 
-void	ft_pb(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_bring_min_to_top(t_stack **a, int pos, t_bench *bench)
 {
-	t_stack	*tmp;
+	int	size;
 
-	if (!a || !*a)
-		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	tmp->next = *b;
-	*b = tmp;
-	ft_print_op("pb", bench);
+	size = ft_stack_size(*a);
+	if (pos <= size / 2)
+	{
+		while (pos-- > 0)
+			ft_ra(a, bench);
+	}
+	else
+	{
+		while (pos++ < size)
+			ft_rra(a, bench);
+	}
 }
