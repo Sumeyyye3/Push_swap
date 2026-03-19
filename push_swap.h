@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 01:38:51 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/19 15:04:12 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_bench
 /* main */
 int		main(int ac, char **av);
 t_stack	*ft_create_node(long value);
-void	ft_add_node(t_stack **stack, t_stack *new);
+void	ft_add_node(t_stack **stack, t_stack *new_stack);
 //void	ft_assign_indices(t_stack *stack);
 int	ft_check_duplicate(char **nums);
 t_stack	*ft_init_stack(char **nums);
