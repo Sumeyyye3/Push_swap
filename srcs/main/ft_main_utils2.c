@@ -45,7 +45,7 @@ static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
 	j = 0;
 	while (i < ac)
 	{
-		nums[j++] = av[i];
+		nums[j++] = ft_strdup(av[i]);
 		i++;
 	}
 	nums[j] = NULL;

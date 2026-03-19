@@ -51,3 +51,43 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 		ft_putchar_fd(n + '0', fd);
 }
+
+char	*ft_strdup(const char *s)
+{
+	int		i;
+	int		j;
+	char	*s_copy;
+
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	s_copy = malloc(i + 1);
+	if (!s_copy)
+	{
+		return (NULL);
+	}
+	while (s[j])
+	{
+		s_copy[j] = s[j];
+		j++;
+	}
+	s_copy[j] = '\0';
+	return (s_copy);
+}
+void	*ft_memset(void *s, int c, size_t n)
+{
+	unsigned char	*str_c;
+	size_t			i;
+
+	i = 0;
+	str_c = (unsigned char *)s;
+	while (i < n)
+	{
+		str_c[i] = (unsigned char)c;
+		i++;
+	}
+	return (s);
+}

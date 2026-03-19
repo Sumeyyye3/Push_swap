@@ -94,6 +94,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 long	ft_atol(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_free(char **new_av);
+char	*ft_strdup(const char *s);
+void	*ft_memset(void *s, int c, size_t n);
 void	ft_free_split(char **split);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);

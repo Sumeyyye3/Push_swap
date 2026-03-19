@@ -59,6 +59,7 @@ int	ft_check_duplicate(char **nums)
 		}
 		i++;
 	}
+	printf("dublicate düşmedi\n");
 	return (0); // duplicate yok
 }
 
@@ -67,6 +68,7 @@ void	ft_check_arguments(int ac, char **av, char *strategy)
 	int		i;
 	char	**nums;
 
+	printf("checke geldi\n");
 	if (!av || !*av)
 		exit(1);
 	nums = av;
@@ -84,13 +86,16 @@ void	ft_check_arguments(int ac, char **av, char *strategy)
 	{
 		if (ft_strcmp(nums[i], strategy) != 0)
 			i++;
-		if (!ft_isnumber(nums[i]))
+
+		if (!ft_isnumber(nums[i])) /////HER TÜRLÜ İSNUMBERA DÜŞÜYOR VE SEG YİYOR
 		{
+			printf("isnumberda\n");
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
 		if (ft_check_duplicate(nums))
 		{
+			printf("dublicate düştü\n");
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
