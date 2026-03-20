@@ -14,9 +14,9 @@
 
 static void	ft_dispatch_complex(t_stack **a, t_stack **b, t_bench *bench)
 {
-	bench->strategy = "Heap Sort";
-	bench->complexity = "O(n log n)";
-	ft_heap_sort(a, b, bench);
+	bench->strategy = "Radix Sort";
+	bench->complexity = "O(n * k)";
+	ft_radix_sort(a, b, bench);
 }
 
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)

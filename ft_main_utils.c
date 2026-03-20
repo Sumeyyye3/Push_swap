@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include<stdio.h>
+
 t_stack	*ft_create_node(long value)
 {
 	t_stack	*new;

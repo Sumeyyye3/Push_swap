@@ -61,9 +61,7 @@ static char	*ft_find_strategy(char **av)
 	while (av[i])
 	{
 		if (ft_strcmp(av[i], "--simple") == 0)
-		{
 			return ("simple");
-		}
 		else if (ft_strcmp(av[i], "--medium") == 0)
 			return ("medium");
 		else if (ft_strcmp(av[i], "--complex") == 0)
@@ -72,6 +70,7 @@ static char	*ft_find_strategy(char **av)
 	}
 	return ("none");
 }
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;

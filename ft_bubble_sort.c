@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include<stdio.h>
+
 static void	ft_bubble_pass(t_stack **a, int size, t_bench *bench)
 {
 	int	i;

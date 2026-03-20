@@ -77,6 +77,7 @@ char	*ft_strdup(const char *s)
 	s_copy[j] = '\0';
 	return (s_copy);
 }
+
 void	*ft_memset(void *s, int c, size_t n)
 {
 	unsigned char	*str_c;

@@ -116,8 +116,8 @@ int		ft_find_in_chunk(t_stack *stack, int min, int max);
 void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max,t_bench *bench);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
 
-/* sort_heap */
-void	ft_heap_sort(t_stack **a, t_stack **b, t_bench *bench);
+/* sort_radix */
+void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_bring_to_top(t_stack **stack, int pos, t_bench *bench, char name);
 
 /* sort_adaptive */

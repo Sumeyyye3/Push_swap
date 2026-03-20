@@ -49,24 +49,24 @@ int	ft_is_sorted(t_stack *stack)
 	return (1);
 }
 
-t_stack	*ft_lstnew(int value)
-{
-	t_stack	*new;
+// t_stack	*ft_lstnew(int value)
+// {
+// 	t_stack	*new;
 
-	new = (t_stack *)malloc(sizeof(t_stack));
-	if (!new)
-		return (NULL);
-	new->value = value;
-	new->index = 0;
-	new->next = NULL;
-	return (new);
-}
+// 	new = (t_stack *)malloc(sizeof(t_stack));
+// 	if (!new)
+// 		return (NULL);
+// 	new->value = value;
+// 	new->index = 0;
+// 	new->next = NULL;
+// 	return (new);
+// }
 
-t_stack	*ft_lstlast(t_stack *lst)
-{
-	if (!lst)
-		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
-}
+// t_stack	*ft_lstlast(t_stack *lst)
+// {
+// 	if (!lst)
+// 		return (NULL);
+// 	while (lst->next)
+// 		lst = lst->next;
+// 	return (lst);
+// }

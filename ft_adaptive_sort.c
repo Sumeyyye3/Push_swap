@@ -12,24 +12,24 @@
 
 #include "push_swap.h"
 
-void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
-{
-	double	disorder;
+// void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
+// {
+// 	double	disorder;
 
-	disorder = ft_compute_disorder(*a);
-	if (disorder < 0.2)
-	{
-		bench->complexity = "O(n²)";
-		ft_bubble_sort(a, b, bench);
-	}
-	else if (disorder < 0.5)
-	{
-		bench->complexity = "O(n√n)";
-		ft_block_sort(a, b, bench);
-	}
-	else
-	{
-		bench->complexity = "O(n log n)";
-		ft_heap_sort(a, b, bench);
-	}
-}
+// 	disorder = ft_compute_disorder(*a);
+// 	if (disorder < 0.2)
+// 	{
+// 		bench->complexity = "O(n²)";
+// 		ft_bubble_sort(a, b, bench);
+// 	}
+// 	else if (disorder < 0.5)
+// 	{
+// 		bench->complexity = "O(n√n)";
+// 		ft_block_sort(a, b, bench);
+// 	}
+// 	else
+// 	{
+// 		bench->complexity = "O(n log n)";
+// 		ft_radix_sort(a, b, bench);
+// 	}
+// }
