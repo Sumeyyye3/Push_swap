@@ -84,10 +84,13 @@ void	ft_check_arguments(int ac, char **av, char *strategy)
 	}
 	while (nums[i])
 	{
-		if (ft_strcmp(nums[i], strategy) != 0)
-			i++;
+		if (ft_strcmp(nums[i], strategy) == 0)
+    	{
+        	i++;
+        	continue;  // strategy ise atla, isnumber'a girme
+    	}
 
-		if (!ft_isnumber(nums[i])) /////HER TÜRLÜ İSNUMBERA DÜŞÜYOR VE SEG YİYOR
+		if (!ft_isnumber(nums[i]))
 		{
 			printf("isnumberda\n");
 			ft_putstr_fd("Error\n", 2);
@@ -101,4 +104,6 @@ void	ft_check_arguments(int ac, char **av, char *strategy)
 		}
 		i++;
 	}
+	if (ac == 2)
+        ft_free_split(nums);
 }
