@@ -1,41 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
+/*   ft_sort_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/12 23:25:30 by mozay            ###   ########.fr       */
+/*   Created: 2026/03/13 00:31:12 by mozay             #+#    #+#             */
+/*   Updated: 2026/03/13 00:31:13 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-void	ft_lstclear(t_stack **lst)
+void	ft_sort_two(t_stack **a, t_bench *bench)
 {
-	t_stack	*tmp;
-
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
+	if ((*a)->value > (*a)->next->value)
+		ft_sa(a, bench);
 }
 
-void	ft_free_stack(t_stack **stack)
+void	ft_bring_min_to_top(t_stack **a, int pos, t_bench *bench)
 {
-	t_stack	*tmp;
+	int	size;
 
-	if (!stack || !*stack)
-		return ;
-	while (*stack)
+	size = ft_stack_size(*a);
+	if (pos <= size / 2)
 	{
-		tmp = (*stack)->next;
-		free(*stack);
-		*stack = tmp;
+		while (pos-- > 0)
+			ft_ra(a, bench);
+	}
+	else
+	{
+		while (pos++ < size)
+			ft_rra(a, bench);
 	}
 }

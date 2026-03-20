@@ -1,35 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_adaptive_sort.c                                 :+:      :+:    :+:   */
+/*   ft_stack_clear.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/13 04:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 00:40:05 by mozay            ###   ########.fr       */
+/*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
+/*   Updated: 2026/03/12 23:25:30 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
-void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_lstclear(t_stack **lst)
 {
-	double	disorder;
+	t_stack	*tmp;
 
-	disorder = ft_compute_disorder(*a);
-	if (disorder < 0.2)
+	if (!lst || !*lst)
+		return ;
+	while (*lst)
 	{
-		bench->complexity = "O(n²)";
-		ft_bubble_sort(a, b, bench);
+		tmp = (*lst)->next;
+		free(*lst);
+		*lst = tmp;
 	}
-	else if (disorder < 0.5)
+}
+
+void	ft_free_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (!stack || !*stack)
+		return ;
+	while (*stack)
 	{
-		bench->complexity = "O(n√n)";
-		ft_block_sort(a, b, bench);
-	}
-	else
-	{
-		bench->complexity = "O(n log n)";
-		ft_heap_sort(a, b, bench);
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
 	}
 }

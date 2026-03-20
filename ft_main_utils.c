@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include<stdio.h>
 t_stack	*ft_create_node(long value)
 {
@@ -40,27 +40,27 @@ void	ft_add_node(t_stack **stack, t_stack *new)
 	}
 }
 
-//void	ft_assign_indices(t_stack *stack)
-//{
-//	t_stack	*tmp;
-//	t_stack	*tmp2;
-//	int		idx;
+void	ft_assign_indices(t_stack *stack)
+{
+	t_stack	*tmp;
+	t_stack	*tmp2;
+	int		idx;
 
-//	tmp = stack;
-//	while (tmp)
-//	{
-//		idx = 0;
-//		tmp2 = stack;
-//		while (tmp2)
-//		{
-//			if (tmp->value > tmp2->value)
-//				idx++;
-//			tmp2 = tmp2->next;
-//		}
-//		tmp->index = idx;
-//		tmp = tmp->next;
-//	}
-//}
+	tmp = stack;
+	while (tmp)
+	{
+		idx = 0;
+		tmp2 = stack;
+		while (tmp2)
+		{
+			if (tmp->value > tmp2->value)
+				idx++;
+			tmp2 = tmp2->next;
+		}
+		tmp->index = idx;
+		tmp = tmp->next;
+	}
+}
 
 static t_stack	*ft_init_stack_args(char **args, int cnt)
 {

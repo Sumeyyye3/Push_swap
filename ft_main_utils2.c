@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 int	ft_count_numbers(int ac, char **av)
 {
@@ -33,7 +33,7 @@ int	ft_count_numbers(int ac, char **av)
 }
 
 static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
-{                                  // 3     ./a.out 2 1      2
+{                          
 	char	**nums;
 	int		i;
 	int		j;

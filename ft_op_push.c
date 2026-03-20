@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 void	ft_pa(t_stack **a, t_stack **b, t_bench *bench)
 {

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 
 static void	ft_rotate_to_pos(t_stack **a, int pos, t_bench *bench)
 {
@@ -29,12 +29,10 @@ static void	ft_rotate_to_pos(t_stack **a, int pos, t_bench *bench)
 	}
 }
 
-void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max)
+void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max,t_bench *bench)
 {
 	int		pos;
-	t_bench	*bench;
 
-	bench = NULL;
 	while (1)
 	{
 		pos = ft_find_in_chunk(*a, min, max);

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "push_swap.h"
 #include<unistd.h>
 static void	ft_case_one(t_stack **a, t_bench *bench)
 {
