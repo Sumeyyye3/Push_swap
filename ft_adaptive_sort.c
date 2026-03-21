@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+printf("ft_adaptive_sort is currently disabled for testing purposes.\n");
 // void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 // {
 // 	double	disorder;
