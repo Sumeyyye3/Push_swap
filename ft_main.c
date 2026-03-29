@@ -6,24 +6,20 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:35 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 19:59:08 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-<<<<<<< HEAD
-#include <stdio.h>
-=======
->>>>>>> main
 
 static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 {
-	long	arr_nums;
+	long	arr_num;
 	int		i;
 
-	*cnt = ft_count_numbers(ac, av); // 2
+	*cnt = ft_count_numbers(ac, av);
 	*nums = ft_extract_numbers(ac, av, cnt);
-	if (!*nums)
+	if (!*nums || *cnt <= 0)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
@@ -31,9 +27,10 @@ static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 	i = 0;
 	while ((*nums)[i])
 	{
-		arr_nums = ft_atol((*nums)[i]);
-		if (arr_nums < INT_MIN || arr_nums > INT_MAX)
+		arr_num = ft_atol((*nums)[i]);
+		if (arr_num < INT_MIN || arr_num > INT_MAX)
 		{
+			ft_free_split(*nums);
 			ft_putstr_fd("Error\n", 2);
 			exit(1);
 		}
@@ -41,10 +38,12 @@ static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 	}
 }
 
-static void	ft_initialize(t_stack **a, t_bench *bench, int ac, char **av)
+static void	ft_initialize(t_stack **a, int ac, char **av)
 {
-	char **nums;
-	int cnt;
+	char	**nums;
+	int		cnt;
+
+	cnt = 0;
 	ft_process_args(ac, av, &nums, &cnt);
 	*a = ft_init_stack(nums);
 	ft_free_split(nums);
@@ -54,25 +53,44 @@ static void	ft_initialize(t_stack **a, t_bench *bench, int ac, char **av)
 		exit(1);
 	}
 	ft_assign_indices(*a);
-	ft_init_bench(bench);
 }
 
-static char	*ft_find_strategy(char **av)
+static char	*ft_find_strategy(int ac, char **av)
+{
+	int		i;
+	char	*found;
+
+	i = 1;
+	found = NULL;
+	while (i < ac)
+	{
+		if (ft_strcmp(av[i], "--simple") == 0)
+			found = "simple";
+		else if (ft_strcmp(av[i], "--medium") == 0)
+			found = "medium";
+		else if (ft_strcmp(av[i], "--complex") == 0)
+			found = "complex";
+		else if (ft_strcmp(av[i], "--adaptive") == 0)
+			found = "adaptive";
+		i++;
+	}
+	if (found)
+		return (found);
+	return ("adaptive");
+}
+
+static int	ft_has_bench_flag(int ac, char **av)
 {
 	int	i;
 
-	i = 0;
-	while (av[i])
+	i = 1;
+	while (i < ac)
 	{
-		if (ft_strcmp(av[i], "--simple") == 0)
-			return ("simple");
-		else if (ft_strcmp(av[i], "--medium") == 0)
-			return ("medium");
-		else if (ft_strcmp(av[i], "--complex") == 0)
-			return ("complex");
+		if (ft_strcmp(av[i], "--bench") == 0)
+			return (1);
 		i++;
 	}
-	return ("none");
+	return (0);
 }
 
 int	main(int ac, char **av)
@@ -84,10 +102,11 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	strategy = ft_find_strategy(av);
+	strategy = ft_find_strategy(ac, av);
 	ft_check_arguments(ac, av, strategy);
-	ft_memset(&bench, 0, sizeof(t_bench));
-	ft_initialize(&a, &bench, ac, av);
+	ft_init_bench(&bench);
+	bench.mode = ft_has_bench_flag(ac, av);
+	ft_initialize(&a, ac, av);
 	if (bench.mode)
 		bench.disorder = ft_compute_disorder(a);
 	b = NULL;
