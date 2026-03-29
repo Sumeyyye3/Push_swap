@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-void	ft_free(char **new_av)
-{
-	int	j;
+// void	ft_free(char **new_av)
+// {
+// 	int	j;
 
-	if (!new_av)
-		return ;
-	j = 0;
-	while (new_av[j])
-	{
-		free(new_av[j]);
-		j++;
-	}
-	free(new_av);
-}
+// 	if (!new_av)
+// 		return ;
+// 	j = 0;
+// 	while (new_av[j])
+// 	{
+// 		free(new_av[j]);
+// 		j++;
+// 	}
+// 	free(new_av);
+// }
 
 void	ft_free_split(char **split)
 {

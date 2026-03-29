@@ -58,7 +58,7 @@ void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench)
 	while (i < cnt)
 	{
 		min = i * block;
-		ft_push_chunk(a, b, min, min + block - 1);
+		ft_push_chunk(a, b, min, min + block - 1,bench);
 		i++;
 	}
 	while (*b)

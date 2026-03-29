@@ -4,9 +4,14 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRCS = ft_main.c \
        ft_main_utils.c \
+<<<<<<< HEAD
 	ft_main_utils2.c \
        ft_check_args.c \
        ft_check_utils.c \
+=======
+       ft_main_utils2.c \
+       ft_check_args.c \
+>>>>>>> main
        ft_stack_new.c \
        ft_stack_values.c \
        ft_stack_clear.c \
@@ -23,7 +28,11 @@ SRCS = ft_main.c \
        ft_sort_utils.c \
        ft_block_sort.c \
        ft_block_utils.c \
+<<<<<<< HEAD
        ft_heap_sort.c \
+=======
+       ft_radix_sort.c \
+>>>>>>> main
        ft_adaptive_sort.c \
        ft_adaptive_utils.c \
        ft_bench_init.c \

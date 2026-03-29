@@ -12,72 +12,62 @@
 
 #include "push_swap.h"
 
-void	ft_rr(t_stack **a, t_stack **b, t_bench *bench)
-{
-	int	rotated;
+// void	ft_rr(t_stack **a, t_stack **b, t_bench *bench)
+// {
+// 	int	rotated;
 
-	rotated = 0;
-	if (a && *a && (*a)->next)
-	{
-		ft_ra(a, NULL);
-		rotated = 1;
-	}
-	if (b && *b && (*b)->next)
-	{
-		ft_rb(b, NULL);
-		rotated = 1;
-	}
-	if (rotated)
-		ft_print_op("rr", bench);
-}
+// 	rotated = 0;
+// 	if (a && *a && (*a)->next)
+// 	{
+// 		ft_ra(a, NULL);
+// 		rotated = 1;
+// 	}
+// 	if (b && *b && (*b)->next)
+// 	{
+// 		ft_rb(b, NULL);
+// 		rotated = 1;
+// 	}
+// 	if (rotated)
+// 		ft_print_op("rr", bench);
+// }
 
-void	ft_rrr(t_stack **a, t_stack **b, t_bench *bench)
-{
-	int	reversed;
+// void	ft_rrr(t_stack **a, t_stack **b, t_bench *bench)
+// {
+// 	int	reversed;
 
-	reversed = 0;
-	if (a && *a && (*a)->next)
-	{
-		ft_rra(a, NULL);
-		reversed = 1;
-	}
-	if (b && *b && (*b)->next)
-	{
-		ft_rrb(b, NULL);
-		reversed = 1;
-	}
-	if (reversed)
-		ft_print_op("rrr", bench);
-}
+// 	reversed = 0;
+// 	if (a && *a && (*a)->next)
+// 	{
+// 		ft_rra(a, NULL);
+// 		reversed = 1;
+// 	}
+// 	if (b && *b && (*b)->next)
+// 	{
+// 		ft_rrb(b, NULL);
+// 		reversed = 1;
+// 	}
+// 	if (reversed)
+// 		ft_print_op("rrr", bench);
+// }
 
-void	ft_ss(t_stack **a, t_stack **b, t_bench *bench)
-{
-	int	swapped;
+// void	ft_ss(t_stack **a, t_stack **b, t_bench *bench)
+// {
+// 	int	swapped;
 
-	swapped = 0;
-	if (a && *a && (*a)->next)
-	{
-		ft_sa(a, NULL);
-		swapped = 1;
-	}
-	if (b && *b && (*b)->next)
-	{
-		ft_sb(b, NULL);
-		swapped = 1;
-	}
-	if (swapped)
-		ft_print_op("ss", bench);
-}
-
-int	ft_strcmp(const char *s1, const char *s2)
-{
-	int	i;
-
-	i = 0;
-	while (s1[i] && s1[i] == s2[i])
-		i++;
-	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
-}
+// 	swapped = 0;
+// 	if (a && *a && (*a)->next)
+// 	{
+// 		ft_sa(a, NULL);
+// 		swapped = 1;
+// 	}
+// 	if (b && *b && (*b)->next)
+// 	{
+// 		ft_sb(b, NULL);
+// 		swapped = 1;
+// 	}
+// 	if (swapped)
+// 		ft_print_op("ss", bench);
+// }
 
 static void	ft_count_op_part(char *op, t_bench *bench)
 {

@@ -11,7 +11,10 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+<<<<<<< HEAD
 #include <stdio.h>
+=======
+>>>>>>> main
 
 static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 {
@@ -26,9 +29,9 @@ static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 		exit(1);
 	}
 	i = 0;
-	while (nums[i])
+	while ((*nums)[i])
 	{
-		arr_nums = ft_atol(**nums);
+		arr_nums = ft_atol((*nums)[i]);
 		if (arr_nums < INT_MIN || arr_nums > INT_MAX)
 		{
 			ft_putstr_fd("Error\n", 2);
@@ -40,16 +43,17 @@ static void	ft_process_args(int ac, char **av, char ***nums, int *cnt)
 
 static void	ft_initialize(t_stack **a, t_bench *bench, int ac, char **av)
 {
-	char **nums; // av ' nin kopyası olacak
-	int cnt;     // 2
-	ft_process_args(ac, av, &nums, &cnt); // nums = "2"  "1"
+	char **nums;
+	int cnt;
+	ft_process_args(ac, av, &nums, &cnt);
 	*a = ft_init_stack(nums);
+	ft_free_split(nums);
 	if (!*a)
 	{
 		ft_putstr_fd("Error\n", 2);
 		exit(1);
 	}
-	// ft_assign_indices(*a);
+	ft_assign_indices(*a);
 	ft_init_bench(bench);
 }
 
@@ -61,9 +65,7 @@ static char	*ft_find_strategy(char **av)
 	while (av[i])
 	{
 		if (ft_strcmp(av[i], "--simple") == 0)
-		{
 			return ("simple");
-		}
 		else if (ft_strcmp(av[i], "--medium") == 0)
 			return ("medium");
 		else if (ft_strcmp(av[i], "--complex") == 0)
@@ -72,6 +74,7 @@ static char	*ft_find_strategy(char **av)
 	}
 	return ("none");
 }
+
 int	main(int ac, char **av)
 {
 	t_stack	*a;
@@ -81,17 +84,13 @@ int	main(int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	strategy = NULL;
-	printf("once");
+	strategy = ft_find_strategy(av);
 	ft_check_arguments(ac, av, strategy);
-	printf("once");
+	ft_memset(&bench, 0, sizeof(t_bench));
 	ft_initialize(&a, &bench, ac, av);
-		// av kopyası numbs oluşturur ve sayı zincşrşnş oluşturur
 	if (bench.mode)
 		bench.disorder = ft_compute_disorder(a);
-	
 	b = NULL;
-	strategy = ft_find_strategy(av);
 	ft_sort_stacks(&a, &b, strategy, &bench);
 	if (bench.mode)
 		ft_print_bench(&bench);

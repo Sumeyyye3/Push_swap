@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+<<<<<<< HEAD
 
 static void	ft_dispatch_simple(t_stack **a, t_stack **b, t_bench *bench)
 {
@@ -25,34 +26,24 @@ static void	ft_dispatch_medium(t_stack **a, t_stack **b, t_bench *bench)
 	bench->complexity = "O(n√n)";
 	ft_block_sort(a, b, bench);
 }
+=======
+>>>>>>> main
 
 static void	ft_dispatch_complex(t_stack **a, t_stack **b, t_bench *bench)
 {
-	bench->strategy = "Heap Sort";
-	bench->complexity = "O(n log n)";
-	ft_heap_sort(a, b, bench);
-}
-
-void	ft_dispatch_sort(t_stack **a, t_stack **b, char *strat, t_bench *bch)
-{
-	if (ft_strcmp(strat, "simple") == 0)
-		ft_dispatch_simple(a, b, bch);
-	else if (ft_strcmp(strat, "medium") == 0)
-		ft_dispatch_medium(a, b, bch);
-	else if (ft_strcmp(strat, "complex") == 0)
-		ft_dispatch_complex(a, b, bch);
+	bench->strategy = "Radix Sort";
+	bench->complexity = "O(n * k)";
+	ft_radix_sort(a, b, bench);
 }
 
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)
 {
 	int	size;
-	char *flag;
 
-	flag = "none";
 	if (!a || !*a)
 		return ;
 	size = ft_stack_size(*a);
-	if(ft_strcmp(strat, flag) == 0)
+	if(ft_strcmp(strat, "none") == 0)
 	{
 		if (size <= 1 || ft_is_sorted(*a))
 			return ;
@@ -66,12 +57,6 @@ void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)
 			ft_simple_sort(a, b, bch);
 			return ;
 		}
-		else
-		{
-			flag = "complex"; 
-			ft_dispatch_sort(a, b, flag, bch);
-			return ;
-		}
 	}
-	ft_dispatch_sort(a, b, strat, bch);
+	ft_dispatch_complex(a, b, bch);
 }

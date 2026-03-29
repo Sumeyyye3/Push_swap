@@ -33,7 +33,7 @@ int	ft_count_numbers(int ac, char **av)
 }
 
 static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
-{                                  // 3     ./a.out 2 1      2
+{                          
 	char	**nums;
 	int		i;
 	int		j;
@@ -45,7 +45,7 @@ static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
 	j = 0;
 	while (i < ac)
 	{
-		nums[j++] = av[i];
+		nums[j++] = ft_strdup(av[i]);
 		i++;
 	}
 	nums[j] = NULL;

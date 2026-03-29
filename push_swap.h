@@ -94,6 +94,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 long	ft_atol(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
 void	ft_free(char **new_av);
+void	ft_assign_indices(t_stack *stack);
+char	*ft_strdup(const char *s);
+void	*ft_memset(void *s, int c, size_t n);
 void	ft_free_split(char **split);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -110,11 +113,11 @@ void	ft_bring_min_to_top(t_stack **a, int pos, t_bench *bench);
 void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench);
 int		ft_sqrt(int nb);
 int		ft_find_in_chunk(t_stack *stack, int min, int max);
-void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max);
+void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max,t_bench *bench);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
 
-/* sort_heap */
-void	ft_heap_sort(t_stack **a, t_stack **b, t_bench *bench);
+/* sort_radix */
+void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_bring_to_top(t_stack **stack, int pos, t_bench *bench, char name);
 
 /* sort_adaptive */

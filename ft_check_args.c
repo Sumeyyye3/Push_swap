@@ -11,9 +11,12 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+<<<<<<< HEAD
 #include <stddef.h>
 #include <stdio.h>
 #include <unistd.h>
+=======
+>>>>>>> main
 
 int	ft_isnumber(char *str)
 {
@@ -32,7 +35,7 @@ int	ft_isnumber(char *str)
 	while (str[i])
 	{
 		if ((str[i] < '0' || str[i] > '9'))
-			return (0); // rakam değilse false
+			return (0);
 		i++;
 	}
 	return (1);
@@ -54,12 +57,37 @@ int	ft_check_duplicate(char **nums)
 		{
 			n2 = ft_atol(nums[j]);
 			if (n1 == n2)
-				return (1); // duplicate bulundu
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (0); // duplicate yok
+	return (0);
+}
+
+void	ft_check_continue(int i ,int ac,char **nums,char *strategy)
+{
+	while (nums[i])
+	{
+		if (ft_strcmp(nums[i], strategy) == 0)
+    	{
+        	i++;
+        	continue;
+    	}
+		if (!ft_isnumber(nums[i]))
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		if (ft_check_duplicate(nums))
+		{
+			ft_putstr_fd("Error\n", 2);
+			exit(1);
+		}
+		i++;
+	}
+	if (ac == 2)
+        ft_free_split(nums);
 }
 
 void	ft_check_arguments(int ac, char **av, char *strategy)
@@ -80,20 +108,5 @@ void	ft_check_arguments(int ac, char **av, char *strategy)
 		nums = av + 1;
 		i = 1;
 	}
-	while (nums[i])
-	{
-		if (ft_strcmp(nums[i], strategy) != 0)
-			i++;
-		if (!ft_isnumber(nums[i]))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		if (ft_check_duplicate(nums))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		i++;
-	}
+	ft_check_continue(i,ac,nums,strategy);
 }

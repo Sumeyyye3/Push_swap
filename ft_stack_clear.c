@@ -12,19 +12,19 @@
 
 #include "push_swap.h"
 
-void	ft_lstclear(t_stack **lst)
-{
-	t_stack	*tmp;
+// void	ft_lstclear(t_stack **lst)
+// {
+// 	t_stack	*tmp;
 
-	if (!lst || !*lst)
-		return ;
-	while (*lst)
-	{
-		tmp = (*lst)->next;
-		free(*lst);
-		*lst = tmp;
-	}
-}
+// 	if (!lst || !*lst)
+// 		return ;
+// 	while (*lst)
+// 	{
+// 		tmp = (*lst)->next;
+// 		free(*lst);
+// 		*lst = tmp;
+// 	}
+// }
 
 void	ft_free_stack(t_stack **stack)
 {
