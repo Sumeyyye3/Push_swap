@@ -6,12 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 04:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/13 00:40:05 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 19:15:12 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-printf("ft_adaptive_sort is currently disabled for testing purposes.\n");
 // void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 // {
 // 	double	disorder;
