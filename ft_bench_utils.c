@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:02 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 21:44:26 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,20 @@
 static void	ft_print_disorder(t_bench *bench)
 {
 	int	percent;
+	int	scaled;
+	int	int_part;
+	int	frac_part;
 
 	percent = (int)(bench->disorder * 100);
 	ft_putstr_fd("[bench] disorder: ", 2);
-	ft_putnbr_fd(percent, 2);
+	scaled = (int)(percent * 100.0 + 0.5);
+	int_part = scaled / 100;
+	frac_part = scaled % 100;
+	ft_putnbr_fd(int_part, 2);
+	ft_putchar_fd('.', 2);
+	if (frac_part < 10)
+		ft_putchar_fd('0', 2);
+	ft_putnbr_fd(frac_part, 2);
 	ft_putstr_fd(".00%\n", 2);
 }
 
