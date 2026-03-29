@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/30 00:15:35 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/30 00:32:41 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct s_bench
 t_stack	*ft_create_node(long value);
 t_stack	*ft_init_stack(char **nums);
 
-void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max, t_bench *bench);
+void	ft_push_chunk(t_stack **a, t_stack **b, int range[2], t_bench *bench);
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch);
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench);
