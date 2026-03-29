@@ -6,23 +6,38 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:55 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 23:35:52 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_lstsize(t_stack *lst)
+t_stack	*ft_create_node(long value)
 {
-	int	i;
+	t_stack	*new;
 
-	i = 0;
-	while (lst)
+	new = (t_stack *)malloc(sizeof(t_stack));
+	if (!new)
+		return (NULL);
+	new->value = (int)value;
+	new->index = 0;
+	new->next = NULL;
+	return (new);
+}
+
+void	ft_add_node(t_stack **stack, t_stack *new)
+{
+	t_stack	*last;
+
+	if (!*stack)
+		*stack = new;
+	else
 	{
-		i++;
-		lst = lst->next;
+		last = *stack;
+		while (last->next)
+			last = last->next;
+		last->next = new;
 	}
-	return (i);
 }
 
 int	ft_stack_size(t_stack *stack)
@@ -48,25 +63,3 @@ int	ft_is_sorted(t_stack *stack)
 	}
 	return (1);
 }
-
-// t_stack	*ft_lstnew(int value)
-// {
-// 	t_stack	*new;
-
-// 	new = (t_stack *)malloc(sizeof(t_stack));
-// 	if (!new)
-// 		return (NULL);
-// 	new->value = value;
-// 	new->index = 0;
-// 	new->next = NULL;
-// 	return (new);
-// }
-
-// t_stack	*ft_lstlast(t_stack *lst)
-// {
-// 	if (!lst)
-// 		return (NULL);
-// 	while (lst->next)
-// 		lst = lst->next;
-// 	return (lst);
-// }
