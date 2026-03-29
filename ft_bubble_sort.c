@@ -6,61 +6,52 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:13 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 23:51:32 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_bubble_pass(t_stack **a, int size, t_bench *bench)
+void	ft_free_stack(t_stack **stack)
 {
-	int	i;
-	int	swapped;
+	t_stack	*tmp;
 
-	i = 0;
-	swapped = 0;
-	while (i < size - 1)
-	{
-		if ((*a)->next && (*a)->value > (*a)->next->value)
-		{
-			ft_sa(a, bench);
-			swapped = 1;
-		}
-		ft_ra(a, bench);
-		i++;
-	}
-	i = 0;
-	while (i < size - 1)
-	{
-		ft_rra(a, bench);
-		i++;
-	}
-	if (!swapped)
+	if (!stack || !*stack)
 		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
 }
 
-void	ft_bubble_sort(t_stack **a, t_stack **b, t_bench *bench)
+void	ft_free_split(char **split)
 {
-	int	size;
 	int	i;
 
-	(void)b;
-	if (!a || !*a || ft_is_sorted(*a))
+	if (!split)
 		return ;
-	size = ft_stack_size(*a);
 	i = 0;
-	while (i < size - 1 && !ft_is_sorted(*a))
+	while (split[i])
 	{
-		ft_bubble_pass(a, size - i, bench);
+		free(split[i]);
 		i++;
 	}
+	free(split);
+}
+
+void	ft_sort_two(t_stack **a, t_bench *bench)
+{
+	if ((*a)->value > (*a)->next->value)
+		ft_sa(a, bench);
 }
 
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	min_pos;
 	int	size;
-	int moves;
+	int	moves;
 
 	while (*a)
 	{
