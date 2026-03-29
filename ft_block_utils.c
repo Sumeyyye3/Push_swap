@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:08 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/30 00:32:45 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ static void	ft_rotate_to_pos(t_stack **a, int pos, t_bench *bench)
 	}
 }
 
-void	ft_push_chunk(t_stack **a, t_stack **b, int min, int max,t_bench *bench)
+void	ft_push_chunk(t_stack **a, t_stack **b, int range[2], t_bench *bench)
 {
-	int		pos;
+	int	pos;
 
 	while (1)
 	{
-		pos = ft_find_in_chunk(*a, min, max);
+		pos = ft_find_in_chunk(*a, range[0], range[1]);
 		if (pos == -1)
 			break ;
 		ft_rotate_to_pos(a, pos, bench);

@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:05 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/30 00:32:43 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_find_in_chunk(t_stack *stack, int min, int max)
 	return (-1);
 }
 
-int	ft_sqrt(int nb)
+static int	ft_sqrt(int nb)
 {
 	int	i;
 
@@ -43,9 +43,8 @@ void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	size;
 	int	block;
-	int	cnt;
+	int	range[2];
 	int	i;
-	int	min;
 
 	if (!a || !*a || ft_is_sorted(*a))
 		return ;
@@ -53,12 +52,12 @@ void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench)
 	block = ft_sqrt(size);
 	if (block < 1)
 		block = 1;
-	cnt = (size + block - 1) / block;
 	i = 0;
-	while (i < cnt)
+	while (i < (size + block - 1) / block)
 	{
-		min = i * block;
-		ft_push_chunk(a, b, min, min + block - 1,bench);
+		range[0] = i * block;
+		range[1] = range[0] + block - 1;
+		ft_push_chunk(a, b, range, bench);
 		i++;
 	}
 	while (*b)
