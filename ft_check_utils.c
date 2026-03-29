@@ -6,65 +6,78 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:22 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 22:52:14 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-//static int	ft_check_number(char *str, long arg, char **av, int flag)
-//{
-//	if (!ft_isnumber(str))
-//	{
-//		ft_putstr_fd("Error\n", 2);
-//		if (flag == 1)
-//			ft_free(av);
-//		return (0);
-//	}
-//	if (arg < -2147483648 || arg > 2147483647)
-//	{
-//		ft_putstr_fd("Error\n", 2);
-//		if (flag == 1)
-//			ft_free(av);
-//		return (0);
-//	}
-//	return (1);
-//}
+void	ft_error_and_exit(void)
+{
+	ft_putstr_fd("Error\n", 2);
+	exit(1);
+}
 
-//static int	ft_check_duplicate(long arg, char **av, int index, int flag)
-//{
-//	if (!ft_includes(arg, av, index))
-//	{
-//		ft_putstr_fd("Error\n", 2);
-//		if (flag == 1)
-//			ft_free(av);
-//		return (0);
-//	}
-//	return (1);
-//}
+int	ft_is_strategy_flag(char *str)
+{
+	if (ft_strcmp(str, "--simple") == 0)
+		return (1);
+	if (ft_strcmp(str, "--medium") == 0)
+		return (1);
+	if (ft_strcmp(str, "--complex") == 0)
+		return (1);
+	if (ft_strcmp(str, "--adaptive") == 0)
+		return (1);
+	return (0);
+}
 
-//static int	ft_process_single_arg(char **av, int i, int flag)
-//{
-//	long	arg;
+int	ft_is_known_flag(char *str)
+{
+	if (ft_strcmp(str, "--bench") == 0 || ft_is_strategy_flag(str))
+		return (1);
+	return (0);
+}
 
-//	arg = ft_atol(av[i]);
-//	if (!ft_check_number(av[i], arg, av, flag))
-//		return (0);
-//	if (!ft_check_duplicate(arg, av, i, flag))
-//		return (0);
-//	return (1);
-//}
+int	ft_isnumber(char *str)
+{
+	int	i;
 
-//int	ft_controls(char **new_av, int flag)
-//{
-//	int	i;
+	i = 0;
+	if (!str || !str[0])
+		return (0);
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	if (str[i] == '\0')
+		return (0);
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (0);
+		i++;
+	}
+	return (1);
+}
 
-//	i = 0;
-//	while (new_av[i])
-//	{
-//		if (!ft_process_single_arg(new_av, i, flag))
-//			return (0);
-//		i++;
-//	}
-//	return (1);
-//}
+int	ft_check_duplicate(char **nums)
+{
+	int		i;
+	int		j;
+	long	n1;
+	long	n2;
+
+	i = 0;
+	while (nums[i])
+	{
+		n1 = ft_atol(nums[i]);
+		j = i + 1;
+		while (nums[j])
+		{
+			n2 = ft_atol(nums[j]);
+			if (n1 == n2)
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
