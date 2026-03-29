@@ -6,68 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 01:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:38 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 21:04:11 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-// void	ft_rr(t_stack **a, t_stack **b, t_bench *bench)
-// {
-// 	int	rotated;
-
-// 	rotated = 0;
-// 	if (a && *a && (*a)->next)
-// 	{
-// 		ft_ra(a, NULL);
-// 		rotated = 1;
-// 	}
-// 	if (b && *b && (*b)->next)
-// 	{
-// 		ft_rb(b, NULL);
-// 		rotated = 1;
-// 	}
-// 	if (rotated)
-// 		ft_print_op("rr", bench);
-// }
-
-// void	ft_rrr(t_stack **a, t_stack **b, t_bench *bench)
-// {
-// 	int	reversed;
-
-// 	reversed = 0;
-// 	if (a && *a && (*a)->next)
-// 	{
-// 		ft_rra(a, NULL);
-// 		reversed = 1;
-// 	}
-// 	if (b && *b && (*b)->next)
-// 	{
-// 		ft_rrb(b, NULL);
-// 		reversed = 1;
-// 	}
-// 	if (reversed)
-// 		ft_print_op("rrr", bench);
-// }
-
-// void	ft_ss(t_stack **a, t_stack **b, t_bench *bench)
-// {
-// 	int	swapped;
-
-// 	swapped = 0;
-// 	if (a && *a && (*a)->next)
-// 	{
-// 		ft_sa(a, NULL);
-// 		swapped = 1;
-// 	}
-// 	if (b && *b && (*b)->next)
-// 	{
-// 		ft_sb(b, NULL);
-// 		swapped = 1;
-// 	}
-// 	if (swapped)
-// 		ft_print_op("ss", bench);
-// }
 
 static void	ft_count_op_part(char *op, t_bench *bench)
 {
