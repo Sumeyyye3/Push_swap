@@ -6,107 +6,84 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:19 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 22:17:34 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-<<<<<<< HEAD
-#include <stddef.h>
-#include <stdio.h>
-#include <unistd.h>
-=======
->>>>>>> main
 
-int	ft_isnumber(char *str)
+static void	ft_check_token(char *str, int *strategy_count)
+{
+	if (ft_is_strategy_flag(str))
+	{
+		(*strategy_count)++;
+		return ;
+	}
+	if (ft_is_known_flag(str))
+		return ;
+	if ((str[0] == '-' && str[1] == '-') || !ft_isnumber(str))
+		ft_error_and_exit();
+}
+
+static void	ft_validate_tokens(char **tokens)
 {
 	int	i;
+	int	strategy_count;
 
 	i = 0;
-	if (!str || !str[0])
-		return (0);
-	if (str[i] == '+' || str[i] == '-')
-		i++;
-	if (str[i] == '\0')
+	strategy_count = 0;
+	while (tokens[i])
 	{
-		ft_putstr_fd("Error\n", 2);
-		exit(1);
-	}
-	while (str[i])
-	{
-		if ((str[i] < '0' || str[i] > '9'))
-			return (0);
+		ft_check_token(tokens[i], &strategy_count);
 		i++;
 	}
-	return (1);
+	if (strategy_count > 1)
+		ft_error_and_exit();
 }
 
-int	ft_check_duplicate(char **nums)
+static void	ft_validate_numbers(int ac, char **av)
 {
+	char	**nums;
+	int		cnt;
 	int		i;
-	int		j;
-	long	n1;
-	long	n2;
+	long	val;
 
+	cnt = ft_count_numbers(ac, av);
+	if (cnt <= 0)
+		ft_error_and_exit();
+	nums = ft_extract_numbers(ac, av, &cnt);
+	if (!nums || ft_check_duplicate(nums))
+		ft_error_and_exit();
 	i = 0;
 	while (nums[i])
 	{
-		n1 = ft_atol(nums[i]);
-		j = i + 1;
-		while (nums[j])
+		val = ft_atol(nums[i]);
+		if (val < INT_MIN || val > INT_MAX)
 		{
-			n2 = ft_atol(nums[j]);
-			if (n1 == n2)
-				return (1);
-			j++;
+			ft_free_split(nums);
+			ft_error_and_exit();
 		}
 		i++;
 	}
-	return (0);
-}
-
-void	ft_check_continue(int i ,int ac,char **nums,char *strategy)
-{
-	while (nums[i])
-	{
-		if (ft_strcmp(nums[i], strategy) == 0)
-    	{
-        	i++;
-        	continue;
-    	}
-		if (!ft_isnumber(nums[i]))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		if (ft_check_duplicate(nums))
-		{
-			ft_putstr_fd("Error\n", 2);
-			exit(1);
-		}
-		i++;
-	}
-	if (ac == 2)
-        ft_free_split(nums);
+	ft_free_split(nums);
 }
 
 void	ft_check_arguments(int ac, char **av, char *strategy)
 {
-	int		i;
-	char	**nums;
+	char	**tokens;
 
+	(void)strategy;
 	if (!av || !*av)
 		exit(1);
-	nums = av;
 	if (ac == 2)
 	{
-		nums = ft_split(av[1], ' ');
-		i = 0;
+		tokens = ft_split(av[1], ' ');
+		if (!tokens)
+			exit(1);
+		ft_validate_tokens(tokens);
+		ft_free_split(tokens);
 	}
 	else
-	{
-		nums = av + 1;
-		i = 1;
-	}
-	ft_check_continue(i,ac,nums,strategy);
+		ft_validate_tokens(av + 1);
+	ft_validate_numbers(ac, av);
 }
