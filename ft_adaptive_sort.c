@@ -6,21 +6,12 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 04:00:00 by mozay             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2026/03/19 15:14:46 by mozay            ###   ########.fr       */
-=======
-/*   Updated: 2026/03/29 19:15:12 by mozay            ###   ########.fr       */
->>>>>>> main
+/*   Updated: 2026/03/29 19:40:53 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include "push_swap.h"
-<<<<<<< HEAD
-=======
-// void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
-// {
-// 	double	disorder;
->>>>>>> main
 
 // 	disorder = ft_compute_disorder(*a);
 // 	if (disorder < 0.2)
