@@ -6,16 +6,12 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/19 15:15:28 by mozay            ###   ########.fr       */
+/*   Updated: 2026/03/29 21:02:04 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-<<<<<<< HEAD
-#include<stdio.h>
-=======
 
->>>>>>> main
 t_stack	*ft_create_node(long value)
 {
 	t_stack	*new;
