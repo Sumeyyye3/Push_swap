@@ -2,41 +2,26 @@ NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = ft_main.c \
-       ft_main_utils.c \
-<<<<<<< HEAD
-	ft_main_utils2.c \
+SRCS = ft_adaptive_sort.c \
+       ft_bench_init.c \
+       ft_bench_utils.c \
+       ft_block_sort.c \
+       ft_block_utils.c \
+       ft_bubble_sort.c \
        ft_check_args.c \
        ft_check_utils.c \
-=======
+       ft_main_utils.c \
        ft_main_utils2.c \
-       ft_check_args.c \
->>>>>>> main
-       ft_stack_new.c \
-       ft_stack_values.c \
-       ft_stack_clear.c \
+       ft_main.c \
+       ft_op_combined.c \
        ft_op_push.c \
        ft_op_rotate.c \
        ft_op_swap.c \
-       ft_op_combined.c \
-       ft_utils_split_atol.c \
-       ft_utils_str.c \
-       ft_utils_free.c \
-       ft_utils_put.c \
-       ft_bubble_sort.c \
-       ft_sort_three.c \
-       ft_sort_utils.c \
-       ft_block_sort.c \
-       ft_block_utils.c \
-<<<<<<< HEAD
-       ft_heap_sort.c \
-=======
        ft_radix_sort.c \
->>>>>>> main
-       ft_adaptive_sort.c \
-       ft_adaptive_utils.c \
-       ft_bench_init.c \
-       ft_bench_utils.c
+       ft_stack_new.c \
+       ft_stack_values.c \
+       ft_utils_put_and_str.c \
+       ft_utils_split_atol.c
 
 OBJS = $(SRCS:.c=.o)
 
