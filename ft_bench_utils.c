@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/29 21:44:26 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/02 01:14:04 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,12 @@
 
 static void	ft_print_disorder(t_bench *bench)
 {
-	int	percent;
 	int	scaled;
 	int	int_part;
 	int	frac_part;
 
-	percent = (int)(bench->disorder * 100);
 	ft_putstr_fd("[bench] disorder: ", 2);
-	scaled = (int)(percent * 100.0 + 0.5);
+	scaled = (int)(bench->disorder * 10000.0 + 0.5);
 	int_part = scaled / 100;
 	frac_part = scaled % 100;
 	ft_putnbr_fd(int_part, 2);
@@ -29,7 +27,7 @@ static void	ft_print_disorder(t_bench *bench)
 	if (frac_part < 10)
 		ft_putchar_fd('0', 2);
 	ft_putnbr_fd(frac_part, 2);
-	ft_putstr_fd(".00%\n", 2);
+	ft_putstr_fd("%\n", 2);
 }
 
 static void	ft_print_total_ops(t_bench *bench)
@@ -50,6 +48,7 @@ static void	ft_print_ops_first(t_bench *bench)
 	ft_putstr_fd(" pa: ", 2);
 	ft_putnbr_fd(bench->ops_pa, 2);
 	ft_putstr_fd(" pb: ", 2);
+	ft_putnbr_fd(bench->ops_pb, 2);
 	ft_putstr_fd("\n", 2);
 }
 
@@ -76,9 +75,15 @@ void	ft_print_bench(t_bench *bench)
 		return ;
 	ft_print_disorder(bench);
 	ft_putstr_fd("[bench] strategy: ", 2);
-	ft_putstr_fd(bench->strategy, 2);
+	if (bench->strategy)
+		ft_putstr_fd(bench->strategy, 2);
+	else
+		ft_putstr_fd("None", 2);
 	ft_putstr_fd(" / ", 2);
-	ft_putstr_fd(bench->complexity, 2);
+	if (bench->complexity)
+		ft_putstr_fd(bench->complexity, 2);
+	else
+		ft_putstr_fd("O(1)", 2);
 	ft_putstr_fd("\n", 2);
 	ft_print_total_ops(bench);
 	ft_print_ops_first(bench);
