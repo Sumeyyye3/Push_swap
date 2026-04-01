@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2026/03/30 01:21:05 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/02 01:13:18 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,34 +52,48 @@ static int	ft_is_almost_sorted(t_stack *a)
 
 static void	ft_tiny_fix(t_stack **a, t_bench *bench)
 {
-	if ((*a)->value > (*a)->next->value)
-		ft_sa(a, bench);
-	else
-	{
+	int	top;
+	int	mid;
+	int	bot;
+
+	top = (*a)->value;
+	mid = (*a)->next->value;
+	bot = (*a)->next->next->value;
+	if (top > mid && top > bot && mid < bot)
 		ft_ra(a, bench);
-		if ((*a)->value > (*a)->next->value)
-			ft_sa(a, bench);
+	else if (top > mid && top > bot && mid > bot)
+	{
+		ft_sa(a, bench);
 		ft_rra(a, bench);
 	}
+	else if (top < mid && top < bot && mid > bot)
+	{
+		ft_rra(a, bench);
+		ft_sa(a, bench);
+	}
+	else if (top > mid && top < bot)
+		ft_sa(a, bench);
+	else if (top < mid && top > bot)
+		ft_rra(a, bench);
 }
 
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
-	double	disorder;
+	int	size;
 
-	if (ft_is_almost_sorted(*a))
+	size = ft_stack_size(*a);
+	if (size == 3 && ft_is_almost_sorted(*a))
 	{
 		ft_set_bench(bench, 1);
 		ft_tiny_fix(a, bench);
 		return ;
 	}
-	disorder = ft_compute_disorder(*a);
-	if (disorder < 0.2)
+	if (size <= 5)
 	{
 		ft_set_bench(bench, 1);
 		ft_simple_sort(a, b, bench);
 	}
-	else if (disorder < 0.5)
+	else if (size <= 100)
 	{
 		ft_set_bench(bench, 2);
 		ft_block_sort(a, b, bench);
