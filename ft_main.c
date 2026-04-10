@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/02 01:27:14 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:17:02 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,15 @@ int	main(int ac, char **av)
 	if (ac < 2)
 		return (0);
 	strategy = ft_find_strategy(ac, av);
-	ft_check_arguments(ac, av, strategy);
 	ft_init_bench(&bench);
 	bench.mode = ft_has_bench_flag(ac, av);
+	if (ft_count_numbers(ac, av) <= 0)
+	{
+		if (bench.mode)
+			ft_print_bench(&bench);
+		return (0);
+	}
+	ft_check_arguments(ac, av, strategy);
 	ft_initialize(&a, ac, av);
 	if (bench.mode)
 		bench.disorder = ft_compute_disorder(a);
@@ -113,7 +119,5 @@ int	main(int ac, char **av)
 	ft_sort_stacks(&a, &b, strategy, &bench);
 	if (bench.mode)
 		ft_print_bench(&bench);
-	ft_free_stack(&a);
-	ft_free_stack(&b);
-	return (0);
+	ft_free_all(a, b);
 }
