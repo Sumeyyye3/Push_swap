@@ -29,9 +29,6 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 
-push_swap: $(OBJS)
-	cc $(CFLAGS) $(OBJS) -o push_swap
-	
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
