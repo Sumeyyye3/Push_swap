@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/10 23:15:53 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:25:38 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	ft_pa(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_pb(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_add_node(t_stack **stack, t_stack *new);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
+void	ft_tiny_fix(t_stack **a, t_bench *bench);
 void	ft_sort_two(t_stack **a, t_bench *bench);
 void	ft_free_all(t_stack **a, t_stack **b);
 void	ft_print_op(char *op, t_bench *bench);
