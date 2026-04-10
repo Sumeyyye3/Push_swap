@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2026/04/10 23:11:42 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:25:26 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	ft_set_bench(t_bench *bch, int type)
 	}
 }
 
-static void	ft_tiny_fix(t_stack **a, t_bench *bench)
+void	ft_tiny_fix(t_stack **a, t_bench *bench)
 {
 	int	top;
 	int	mid;
