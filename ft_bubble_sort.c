@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/10 23:15:14 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:26:23 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_free_stack(t_stack **stack)
 
 void	ft_free_all(t_stack **a, t_stack **b)
 {
-	ft_free_stack(&a);
-	ft_free_stack(&b);
+	ft_free_stack(a);
+	ft_free_stack(b);
 }
 
 void	ft_free_split(char **split)
