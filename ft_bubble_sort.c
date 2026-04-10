@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/29 23:51:32 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:15:14 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,12 @@ void	ft_free_stack(t_stack **stack)
 	}
 }
 
+void	ft_free_all(t_stack **a, t_stack **b)
+{
+	ft_free_stack(&a);
+	ft_free_stack(&b);
+}
+
 void	ft_free_split(char **split)
 {
 	int	i;
@@ -43,6 +49,7 @@ void	ft_free_split(char **split)
 
 void	ft_sort_two(t_stack **a, t_bench *bench)
 {
+	ft_set_bench(bench, 4);
 	if ((*a)->value > (*a)->next->value)
 		ft_sa(a, bench);
 }
