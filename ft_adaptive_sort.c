@@ -6,13 +6,32 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2026/04/02 01:13:18 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:11:42 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	ft_set_bench(t_bench *bch, int type)
+static void	ft_control(t_stack **a, t_stack **b, t_bench *bch)
+{
+	if (ft_stack_size(*a) == 2)
+	{
+		ft_sort_two(a, bch);
+		return ;
+	}
+	if (ft_stack_size(*a) == 3)
+	{
+		ft_tiny_fix(a, bch);
+		return ;
+	}
+	if (ft_stack_size(*a) == 4 || ft_stack_size(*a) == 5)
+	{
+		ft_sort_four_and_five(a, b, bch);
+		return ;
+	}
+}
+
+void	ft_set_bench(t_bench *bch, int type)
 {
 	if (type == 1)
 	{
@@ -32,22 +51,8 @@ static void	ft_set_bench(t_bench *bch, int type)
 	else
 	{
 		bch->strategy = "Adaptive";
-		bch->complexity = "O(n^2) to O(n log n)";
+		bch->complexity = "O(n*sqrt(n))";
 	}
-}
-
-static int	ft_is_almost_sorted(t_stack *a)
-{
-	int	errors;
-
-	errors = 0;
-	while (a && a->next)
-	{
-		if (a->value > a->next->value)
-			errors++;
-		a = a->next;
-	}
-	return (errors <= 2);
 }
 
 static void	ft_tiny_fix(t_stack **a, t_bench *bench)
@@ -59,6 +64,7 @@ static void	ft_tiny_fix(t_stack **a, t_bench *bench)
 	top = (*a)->value;
 	mid = (*a)->next->value;
 	bot = (*a)->next->next->value;
+	ft_set_bench(bench, 4);
 	if (top > mid && top > bot && mid < bot)
 		ft_ra(a, bench);
 	else if (top > mid && top > bot && mid > bot)
@@ -79,41 +85,28 @@ static void	ft_tiny_fix(t_stack **a, t_bench *bench)
 
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
-	int	size;
+	double	disorder;
+	int		size;
 
+	disorder = ft_compute_disorder(*a);
 	size = ft_stack_size(*a);
-	if (size == 3 && ft_is_almost_sorted(*a))
-	{
-		ft_set_bench(bench, 1);
+	ft_set_bench(bench, 4);
+	if (size == 3)
 		ft_tiny_fix(a, bench);
-		return ;
-	}
-	if (size <= 5)
-	{
-		ft_set_bench(bench, 1);
+	else if (disorder < 0.2)
 		ft_simple_sort(a, b, bench);
-	}
-	else if (size <= 100)
-	{
-		ft_set_bench(bench, 2);
+	else if (disorder >= 0.2 && disorder < 0.5)
 		ft_block_sort(a, b, bench);
-	}
-	else
-	{
-		ft_set_bench(bench, 3);
+	else if (disorder >= 0.5)
 		ft_radix_sort(a, b, bench);
-	}
 }
 
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)
 {
 	if (!a || !*a || ft_is_sorted(*a))
 		return ;
-	if (ft_stack_size(*a) == 2)
-	{
-		ft_sort_two(a, bch);
-		return ;
-	}
+	if (ft_stack_size(*a) <= 5)
+		ft_control(a, b, bch);
 	if (ft_strcmp(strat, "simple") == 0)
 	{
 		ft_set_bench(bch, 1);
