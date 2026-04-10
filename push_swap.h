@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/02 00:33:38 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:15:53 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_stack	*ft_init_stack(char **nums);
 
 void	ft_push_chunk(t_stack **a, t_stack **b, int range[2], t_bench *bench);
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch);
+void	ft_sort_four_and_five(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench);
@@ -59,7 +60,9 @@ void	ft_pb(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_add_node(t_stack **stack, t_stack *new);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
 void	ft_sort_two(t_stack **a, t_bench *bench);
+void	ft_free_all(t_stack **a, t_stack **b);
 void	ft_print_op(char *op, t_bench *bench);
+void	ft_set_bench(t_bench *bch, int type);
 void	ft_rra(t_stack **a, t_bench *bench);
 void	ft_rrb(t_stack **b, t_bench *bench);
 void	ft_ra(t_stack **a, t_bench *bench);
