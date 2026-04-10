@@ -6,11 +6,21 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/02 00:55:17 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/10 23:08:55 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_sort_four_and_five(t_stack **a, t_stack **b, t_bench *bench)
+{
+	int	size;
+
+	size = ft_stack_size(*a);
+	ft_set_bench(bench, 4);
+	if (size == 4 || size == 5)
+		ft_simple_sort(a, b, bench);
+}
 
 int	ft_find_in_chunk(t_stack *stack, int min, int max)
 {
