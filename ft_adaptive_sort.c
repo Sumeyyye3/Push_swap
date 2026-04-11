@@ -6,12 +6,11 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/30 00:00:00 by                   #+#    #+#             */
-/*   Updated: 2026/04/10 23:25:26 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:54:15 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <stdio.h>
 
 static void	ft_control(t_stack **a, t_stack **b, t_bench *bch)
 {
@@ -104,7 +103,7 @@ void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)
 		return ;
 	if (ft_stack_size(*a) <= 5 && ft_strcmp(strat, "simple") != 0)
 		ft_control(a, b, bch);
-	 if (ft_strcmp(strat, "simple") == 0)
+	else if (ft_strcmp(strat, "simple") == 0)
 	{
 		ft_set_bench(bch, 1);
 		ft_simple_sort(a, b, bch);
