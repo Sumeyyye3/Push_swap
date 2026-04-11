@@ -6,11 +6,65 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/30 00:32:45 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:53:07 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_loop(int ac, char **av, int cnt)
+{
+	char	**parts;
+	int		i;
+	int		k;
+
+	i = 1;
+	while (i < ac)
+	{
+		if (!ft_is_flag(av[i]))
+		{
+			parts = ft_split(av[i], ' ');
+			if (!parts)
+				exit(1);
+			k = 0;
+			while (parts[k])
+			{
+				if (!ft_is_flag(parts[k]))
+					cnt++;
+				k++;
+			}
+			ft_free_split(parts);
+		}
+		i++;
+	}
+	return (cnt);
+}
+
+int	ft_count_single_arg(char *arg)
+{
+	char	**args;
+	int		cnt;
+	int		i;
+
+	args = ft_split(arg, ' ');
+	if (!args)
+		exit(1);
+	if (args[0] && ft_is_flag(args[0]))
+	{
+		ft_free_split(args);
+		ft_error_and_exit();
+	}
+	cnt = 0;
+	i = 0;
+	while (args[i])
+	{
+		if (!ft_is_flag(args[i]))
+			cnt++;
+		i++;
+	}
+	ft_free_split(args);
+	return (cnt);
+}
 
 static void	ft_rotate_to_pos(t_stack **a, int pos, t_bench *bench)
 {
