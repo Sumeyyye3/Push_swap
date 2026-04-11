@@ -12,14 +12,32 @@
 
 #include "push_swap.h"
 
+void	ft_sort_four(t_stack **a, t_stack **b, t_bench *bench)
+{
+	(void)b;
+	ft_move_min_top(a, bench);
+	ft_pb(a, b, bench);
+	ft_tiny_fix(a, bench);
+	ft_pa(a, b, bench);
+}
+
 void	ft_sort_four_and_five(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	size;
 
 	size = ft_stack_size(*a);
+	if (size <= 3)
+		return ;
 	ft_set_bench(bench, 4);
-	if (size == 4 || size == 5)
-		ft_simple_sort(a, b, bench);
+	if (size == 4)
+		ft_sort_four(a, b, bench);
+	else if (size == 5)
+	{
+		ft_move_min_top(a, bench);
+		ft_pb(a, b, bench);
+		ft_sort_four(a, b, bench);
+		ft_pa(a, b, bench);
+	}
 }
 
 int	ft_find_in_chunk(t_stack *stack, int min, int max)

@@ -41,29 +41,30 @@ static void	ft_radix_cnt(int max_bits, t_stack **a, t_stack **b, t_bench *bench)
 	int	size;
 
 	i = 0;
-	size = ft_stack_size(*a);
 	while (i < max_bits)
 	{
+		size = ft_stack_size(*a);
 		j = 0;
-		while (j < size)
+		while (j++ < size)
 		{
 			if (((*a)->index >> i) & 1)
 				ft_ra(a, bench);
 			else
 				ft_pb(a, b, bench);
-			j++;
 		}
 		while (*b)
 			ft_pa(a, b, bench);
+		if (ft_is_sorted(*a))
+			break ;
 		i++;
 	}
 }
 
 void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
-	int		size;
-	int		max_bits;
-	int		max_index;
+	int	size;
+	int	max_bits;
+	int	max_index;
 
 	if (!a || !*a || ft_is_sorted(*a))
 		return ;

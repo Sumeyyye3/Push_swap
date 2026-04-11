@@ -12,6 +12,27 @@
 
 #include "push_swap.h"
 
+void	ft_move_min_top(t_stack **a, t_bench *bench)
+{
+	int	min_pos;
+	int	size;
+	int	moves;
+
+	size = ft_stack_size(*a);
+	min_pos = ft_get_min_pos(*a);
+	if (min_pos <= size / 2)
+	{
+		while (min_pos-- > 0)
+			ft_ra(a, bench);
+	}
+	else
+	{
+		moves = size - min_pos;
+		while (moves-- > 0)
+			ft_rra(a, bench);
+	}
+}
+
 int	ft_is_flag(char *arg)
 {
 	if (ft_strcmp(arg, "--bench") == 0)

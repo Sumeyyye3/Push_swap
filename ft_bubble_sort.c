@@ -58,25 +58,24 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 {
 	int	min_pos;
 	int	size;
-	int	moves;
 
-	while (*a)
+	size = ft_stack_size(*a);
+	if (size == 2)
+		ft_sort_two(a, bench);
+	else if (size == 3)
+		ft_tiny_fix(a, bench);
+	else if (size == 4 || size == 5)
+		ft_sort_four_and_five(a, b ,bench);
+	else
 	{
-		size = ft_stack_size(*a);
-		min_pos = ft_get_min_pos(*a);
-		if (min_pos <= size / 2)
+		while (*a)
 		{
+			min_pos = ft_get_min_pos(*a);
 			while (min_pos-- > 0)
 				ft_ra(a, bench);
+			ft_pb(a, b, bench);
 		}
-		else
-		{
-			moves = size - min_pos;
-			while (moves-- > 0)
-				ft_rra(a, bench);
-		}
-		ft_pb(a, b, bench);
+		while (*b)
+			ft_pa(a, b, bench);
 	}
-	while (*b)
-		ft_pa(a, b, bench);
 }

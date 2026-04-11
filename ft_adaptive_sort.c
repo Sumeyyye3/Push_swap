@@ -11,24 +11,16 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include <stdio.h>
 
 static void	ft_control(t_stack **a, t_stack **b, t_bench *bch)
 {
 	if (ft_stack_size(*a) == 2)
-	{
 		ft_sort_two(a, bch);
-		return ;
-	}
-	if (ft_stack_size(*a) == 3)
-	{
+	else if (ft_stack_size(*a) == 3)
 		ft_tiny_fix(a, bch);
-		return ;
-	}
-	if (ft_stack_size(*a) == 4 || ft_stack_size(*a) == 5)
-	{
+	else if (ft_stack_size(*a) == 4 || ft_stack_size(*a) == 5)
 		ft_sort_four_and_five(a, b, bch);
-		return ;
-	}
 }
 
 void	ft_set_bench(t_bench *bch, int type)
@@ -46,12 +38,17 @@ void	ft_set_bench(t_bench *bch, int type)
 	else if (type == 3)
 	{
 		bch->strategy = "Complex";
-		bch->complexity = "O(n log n)";
+		bch->complexity = "O(n*logn)";
 	}
 	else
 	{
 		bch->strategy = "Adaptive";
-		bch->complexity = "O(n*sqrt(n))";
+		if (bch->disorder < 0.2)
+			bch->complexity = "O(n^2)";
+		else if (bch->disorder >= 0.2 && bch->disorder < 0.5)
+			bch->complexity = "O(n*sqrt(n))";
+		else if (bch->disorder >= 0.5)
+			bch->complexity = "O(n*logn)";
 	}
 }
 
@@ -105,9 +102,9 @@ void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch)
 {
 	if (!a || !*a || ft_is_sorted(*a))
 		return ;
-	if (ft_stack_size(*a) <= 5)
+	if (ft_stack_size(*a) <= 5 && ft_strcmp(strat, "simple") != 0)
 		ft_control(a, b, bch);
-	if (ft_strcmp(strat, "simple") == 0)
+	 if (ft_strcmp(strat, "simple") == 0)
 	{
 		ft_set_bench(bch, 1);
 		ft_simple_sort(a, b, bch);

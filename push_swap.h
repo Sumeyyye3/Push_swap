@@ -57,6 +57,7 @@ void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_check_arguments(int ac, char **av, char *strategy);
 void	ft_pa(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_pb(t_stack **a, t_stack **b, t_bench *bench);
+void	ft_move_min_top(t_stack **a, t_bench *bench);
 void	ft_add_node(t_stack **stack, t_stack *new);
 void	ft_optimize_b(t_stack **b, t_bench *bench);
 void	ft_tiny_fix(t_stack **a, t_bench *bench);

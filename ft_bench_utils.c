@@ -80,7 +80,7 @@ void	ft_print_bench(t_bench *bench)
 	else
 		ft_putstr_fd("None", 2);
 	ft_putstr_fd(" / ", 2);
-	if (bench->complexity)
+	if (bench->complexity)	
 		ft_putstr_fd(bench->complexity, 2);
 	else
 		ft_putstr_fd("O(1)", 2);

@@ -34,19 +34,19 @@ int	ft_get_min_pos(t_stack *stack)
 	int	min_pos;
 
 	if (!stack)
-		exit (1);
+		return (-1);
 	min = stack->value;
 	min_pos = 0;
 	pos = 0;
-	while (stack->next)
+	while (stack)
 	{
-		stack = stack->next;
-		pos++;
 		if (stack->value < min)
 		{
 			min = stack->value;
 			min_pos = pos;
 		}
+		pos++;
+		stack = stack->next;
 	}
 	return (min_pos);
 }
