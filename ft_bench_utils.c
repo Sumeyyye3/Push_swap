@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/02 01:14:04 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:41:25 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	ft_print_bench(t_bench *bench)
 	else
 		ft_putstr_fd("None", 2);
 	ft_putstr_fd(" / ", 2);
-	if (bench->complexity)	
+	if (bench->complexity)
 		ft_putstr_fd(bench->complexity, 2);
 	else
 		ft_putstr_fd("O(1)", 2);
