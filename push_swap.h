@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/04 17:59:34 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/10 23:25:38 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:53:44 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ t_stack	*ft_init_stack(char **nums);
 
 void	ft_push_chunk(t_stack **a, t_stack **b, int range[2], t_bench *bench);
 void	ft_sort_stacks(t_stack **a, t_stack **b, char *strat, t_bench *bch);
+void	ft_check_token(char *str, int *strategy_count, int *seen_number);
 void	ft_sort_four_and_five(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench);
@@ -92,10 +93,12 @@ long	ft_atol(char *str);
 int		ft_find_in_chunk(t_stack *stack, int min, int max);
 int		ft_get_position(t_stack *stack, int value);
 int		ft_strcmp(const char *s1, const char *s2);
+int		ft_loop(int ac, char **av, int cnt);
 int		ft_count_numbers(int ac, char **av);
 int		ft_check_duplicate(char **nums);
 int		ft_is_strategy_flag(char *str);
 int		ft_get_min_pos(t_stack *stack);
+int		ft_count_single_arg(char *arg);
 int		ft_get_max_pos(t_stack *stack);
 int		ft_stack_size(t_stack *stack);
 int		ft_is_sorted(t_stack *stack);
