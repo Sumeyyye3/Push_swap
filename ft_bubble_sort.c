@@ -6,7 +6,7 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 03:00:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/10 23:26:23 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:41:08 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench)
 	else if (size == 3)
 		ft_tiny_fix(a, bench);
 	else if (size == 4 || size == 5)
-		ft_sort_four_and_five(a, b ,bench);
+		ft_sort_four_and_five(a, b, bench);
 	else
 	{
 		while (*a)
