@@ -6,49 +6,17 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/03/29 23:42:06 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:52:54 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static int	ft_loop(int ac, char **av, int cnt)
-{
-	int	i;
-
-	i = 1;
-	while (i < ac)
-	{
-		if (!ft_is_flag(av[i]))
-			cnt++;
-		i++;
-	}
-	return (cnt);
-}
-
 int	ft_count_numbers(int ac, char **av)
 {
-	char	**args;
-	int		cnt;
-	int		i;
-
-	cnt = 0;
 	if (ac == 2)
-	{
-		args = ft_split(av[1], ' ');
-		if (!args)
-			exit(1);
-		i = 0;
-		while (args[i])
-		{
-			if (!ft_is_flag(args[i]))
-				cnt++;
-			i++;
-		}
-		ft_free_split(args);
-		return (cnt);
-	}
-	return (ft_loop(ac, av, cnt));
+		return (ft_count_single_arg(av[1]));
+	return (ft_loop(ac, av, 0));
 }
 
 static char	**ft_extract_single_arg(char *arg, int *cnt)
@@ -77,9 +45,23 @@ static char	**ft_extract_single_arg(char *arg, int *cnt)
 	return (nums);
 }
 
+static void	ft_extract_parts(char **parts, char **nums, int *j)
+{
+	int	k;
+
+	k = 0;
+	while (parts[k])
+	{
+		if (!ft_is_flag(parts[k]))
+			nums[(*j)++] = ft_strdup(parts[k]);
+		k++;
+	}
+}
+
 static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
 {
 	char	**nums;
+	char	**parts;
 	int		i;
 	int		j;
 
@@ -91,7 +73,13 @@ static char	**ft_extract_multi_args(int ac, char **av, int *cnt)
 	while (i < ac)
 	{
 		if (!ft_is_flag(av[i]))
-			nums[j++] = ft_strdup(av[i]);
+		{
+			parts = ft_split(av[i], ' ');
+			if (!parts)
+				exit(1);
+			ft_extract_parts(parts, nums, &j);
+			ft_free_split(parts);
+		}
 		i++;
 	}
 	nums[j] = NULL;
