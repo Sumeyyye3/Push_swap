@@ -6,11 +6,31 @@
 /*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/02 00:34:37 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 00:51:21 by mozay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_check_token(char *str, int *strategy_count, int *seen_number)
+{
+	if (ft_is_strategy_flag(str))
+	{
+		if (*seen_number)
+			ft_error_and_exit();
+		(*strategy_count)++;
+		return ;
+	}
+	if (ft_is_known_flag(str))
+	{
+		if (*seen_number)
+			ft_error_and_exit();
+		return ;
+	}
+	if ((str[0] == '-' && str[1] == '-') || !ft_isnumber(str))
+		ft_error_and_exit();
+	*seen_number = 1;
+}
 
 static int	*ft_stack_to_array(t_stack *stack, int size)
 {
