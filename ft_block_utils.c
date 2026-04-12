@@ -52,7 +52,7 @@ int	ft_count_single_arg(char *arg)
 	if (args[0] && ft_is_flag(args[0]))
 	{
 		ft_free_split(args);
-		ft_error_and_exit();
+		return (0);
 	}
 	cnt = 0;
 	i = 0;
