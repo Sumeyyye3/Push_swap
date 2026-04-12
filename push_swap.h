@@ -55,7 +55,7 @@ void	ft_adaptive_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_simple_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_block_sort(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_radix_sort(t_stack **a, t_stack **b, t_bench *bench);
-void	ft_check_arguments(int ac, char **av, char *strategy);
+void	ft_check_arguments(int ac, char **av);
 void	ft_pa(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_pb(t_stack **a, t_stack **b, t_bench *bench);
 void	ft_move_min_top(t_stack **a, t_bench *bench);

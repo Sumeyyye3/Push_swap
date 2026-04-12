@@ -71,7 +71,7 @@ This approach:
 
 ---
 
-## 3️⃣ Complex Algorithm — O(n log n) — Heap Sort Adaptation
+## 3️⃣ Complex Algorithm — O(n log n) — Radix Sort Adaptation
 
 ### Implementation
 
@@ -113,7 +113,7 @@ Based on this metric, the program automatically selects the best strategy.
 | -------------- | -------------------- | ---------- |
 | < 0.2          | Bubble Sort          | O(n²)      |
 | 0.2 – 0.5      | Block-Based Sort     | O(n√n)     |
-| ≥ 0.5          | Heap Sort Adaptation | O(n log n) |
+| ≥ 0.5          | Radix Sort Adaptation| O(n log n) |
 
 ### Justification
 
@@ -148,7 +148,7 @@ Input validation includes:
 
 ## Prerequisites
 
-* GCC Compiler
+* CC Compiler
 * Make
 * Unix-like OS (Linux / macOS)
 
@@ -410,7 +410,7 @@ AI helped generate:
 
 | Name     | Role      | Contributions                                              |
 | -------- | --------- | ---------------------------------------------------------- |
-| mozay    | Developer | Algorithm implementation, stack operations, error handling |
-| sumdogan | Developer | Benchmark system, adaptive algorithm, testing              |
+| mozay    | Developer | Algorithm implementation, stack operations, error handling ,bench operations|
+| sumdogan | Developer | Algorithm implementation,arguman checks , testing , memory managements      |
 
 Both contributors participated in all stages of development and fully understand the entire codebase.

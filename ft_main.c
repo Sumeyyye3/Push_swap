@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_main.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/12 00:15:43 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 10:26:14 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ int	main(int ac, char **av)
 			ft_print_bench(&bench);
 		return (0);
 	}
-	ft_check_arguments(ac, av, strategy);
+	ft_check_arguments(ac, av);
 	ft_initialize(&a, ac, av);
 	if (bench.mode)
 		bench.disorder = ft_compute_disorder(a);

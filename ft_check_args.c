@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/12 00:51:06 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 10:18:31 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,10 @@ static void	ft_validate_multi_args(int ac, char **av)
 	}
 }
 
-void	ft_check_arguments(int ac, char **av, char *strategy)
+void	ft_check_arguments(int ac, char **av)
 {
 	char	**tokens;
 
-	(void)strategy;
 	if (!av || !*av)
 		exit(1);
 	if (ac == 2)
