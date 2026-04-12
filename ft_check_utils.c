@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_check_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mozay <mozay@student.42kocaeli.com.tr>     +#+  +:+       +#+        */
+/*   By: sumdogan <sumdogan@student.42kocaeli.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 02:30:00 by mozay             #+#    #+#             */
-/*   Updated: 2026/04/12 00:42:09 by mozay            ###   ########.fr       */
+/*   Updated: 2026/04/12 11:01:33 by sumdogan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ int	ft_check_duplicate(char **nums)
 		{
 			n2 = ft_atol(nums[j]);
 			if (n1 == n2)
-				return (1);
+				ft_error_and_exit();
 			j++;
 		}
 		i++;

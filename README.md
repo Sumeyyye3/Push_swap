@@ -324,32 +324,6 @@ $ ./push_swap 5 2 8 1 "abc"
 Error
 ```
 
----
-
-# 📁 Project Structure
-
-```
-42-PUSH_SWAP
-│
-├── Makefile
-├── push_swap.h
-├── README.md
-│
-├── srcs
-│   ├── main
-│   ├── check
-│   ├── stack
-│   ├── operations
-│   ├── utils
-│   ├── sort_simple
-│   ├── sort_block
-│   ├── sort_heap
-│   ├── sort_adaptive
-│   └── bench
-```
-
----
-
 # 📚 Resources
 
 ### Documentation
